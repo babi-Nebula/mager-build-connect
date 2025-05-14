@@ -19,6 +19,9 @@ public class Account {
   public void transfer() {
   }
   public void depa(){
+
+  }
+  public void man(){
     
   }
 
