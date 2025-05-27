@@ -46,8 +46,17 @@ const ContactSection: React.FC = () => {
             <p className="text-muted-foreground">
               Phone: <a href="tel:+1234567890" className="text-primary hover:underline">(123) 456-7890</a>
             </p>
-            <div className="aspect-video bg-muted rounded-lg flex items-center justify-center text-muted-foreground">
-              Google Maps Embed Placeholder
+            <div className="aspect-video bg-muted rounded-lg overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125320.45271939674!2d41.79090605860781!3d9.594024137493936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x16311a7199519f7f%3A0x3801c99494888854!2sDire%20Dawa%2C%20Ethiopia!5e0!3m2!1sen!2sus!4v1670000000000!5m2!1sen!2sus"
+                width="100%"
+                height="100%"
+                style={{ border:0 }}
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Mager Construction Location - Dire Dawa"
+              ></iframe>
             </div>
           </div>
         </div>

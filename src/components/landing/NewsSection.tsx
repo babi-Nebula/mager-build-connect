@@ -10,13 +10,13 @@ const projects = [
     budget: '$5.2M - $6.5M',
   },
   {
-    imageSrc: 'https://images.unsplash.com/photo-1581094376295-4267f1877ee2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGNvbnN0cnVjdGlvbiUyMHNpdGV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
+    imageSrc: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8b2ZmaWNlJTIwYnVpbGRpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
     title: 'Eco-Friendly Office Park',
     location: 'Green Valley Tech Hub',
     budget: '$12M - $15M',
   },
   {
-    imageSrc: 'https://images.unsplash.com/photo-1511097395193-4f9027f86b9f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8aW5mcmFzdHJ1Y3R1cmV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
+    imageSrc: 'https://images.unsplash.com/photo-1433832597046-4f10e10ac764?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGluZnJhc3RydWN0dXJlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
     title: 'Regional Infrastructure Upgrade',
     location: 'Tri-County Area',
     budget: '$25M+',
