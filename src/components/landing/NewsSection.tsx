@@ -21,6 +21,24 @@ const projects = [
     location: 'Tri-County Area',
     budget: '$25M+',
   },
+  {
+    imageSrc: 'https://images.unsplash.com/photo-1494891848038-7bd202a2afeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60', // New image
+    title: 'Coastal City Bridge Construction',
+    location: 'Seaside City, Coastal Region',
+    budget: '$45M - $55M',
+  },
+  {
+    imageSrc: 'https://images.unsplash.com/photo-1527576539890-dfa815648363?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60', // New image
+    title: 'Downtown High-Rise Tower',
+    location: 'Central Business District',
+    budget: '$70M - $85M',
+  },
+  {
+    imageSrc: 'https://images.unsplash.com/photo-1486718448742-163732cd1544?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60', // New image
+    title: 'Sustainable Housing Development',
+    location: 'Evergreen Suburbs',
+    budget: '$8M - $10M',
+  },
 ];
 
 const NewsSection: React.FC = () => {
@@ -44,3 +62,4 @@ const NewsSection: React.FC = () => {
 };
 
 export default NewsSection;
+
