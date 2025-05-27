@@ -2,15 +2,23 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { CheckCircle, Users, Clock } from 'lucide-react';
-import AnimatedStat from './AnimatedStat'; // Import the new component
+import AnimatedStat from './AnimatedStat';
 
 // Placeholder image URL - user can replace this
 const heroImageUrl = '/lovable-uploads/photo-1493397212122-2b85dda8106b.jpeg'; // A building with wavy lines
 
-const statsData = [
+interface StatDataItem {
+  valueStr: string;
+  valueNum?: number; // Optional: only for animated stats
+  suffix?: string;   // Optional: only for animated stats with a suffix
+  label: string;
+  icon: JSX.Element;
+}
+
+const statsData: StatDataItem[] = [
   { valueStr: "500+", valueNum: 500, suffix: "+", label: "Projects Completed", icon: <CheckCircle className="w-8 h-8 text-primary" /> },
   { valueStr: "98%", valueNum: 98, suffix: "%", label: "Client Satisfaction", icon: <Users className="w-8 h-8 text-primary" /> },
-  { valueStr: "24/7", label: "Support Available", icon: <Clock className="w-8 h-8 text-primary" /> }, // This will remain static
+  { valueStr: "24/7", label: "Support Available", icon: <Clock className="w-8 h-8 text-primary" /> }, // This will remain static, no valueNum or suffix needed for animation
 ];
 
 const HeroSection: React.FC = () => {
@@ -55,7 +63,7 @@ const HeroSection: React.FC = () => {
                 {typeof stat.valueNum === 'number' ? (
                   <AnimatedStat
                     targetValue={stat.valueNum}
-                    suffix={stat.suffix}
+                    suffix={stat.suffix} // suffix can be undefined, AnimatedStat handles default
                     className="text-3xl md:text-4xl font-bold text-primary mt-2"
                   />
                 ) : (
