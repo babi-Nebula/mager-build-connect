@@ -1,15 +1,16 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { CheckCircle, Users, Clock } from 'lucide-react'; // Example icons, can be adjusted
+import { CheckCircle, Users, Clock } from 'lucide-react';
+import AnimatedStat from './AnimatedStat'; // Import the new component
 
 // Placeholder image URL - user can replace this
 const heroImageUrl = '/lovable-uploads/photo-1493397212122-2b85dda8106b.jpeg'; // A building with wavy lines
 
-const stats = [
-  { value: "500+", label: "Projects Completed", icon: <CheckCircle className="w-8 h-8 text-primary" /> },
-  { value: "98%", label: "Client Satisfaction", icon: <Users className="w-8 h-8 text-primary" /> },
-  { value: "24/7", label: "Support Available", icon: <Clock className="w-8 h-8 text-primary" /> },
+const statsData = [
+  { valueStr: "500+", valueNum: 500, suffix: "+", label: "Projects Completed", icon: <CheckCircle className="w-8 h-8 text-primary" /> },
+  { valueStr: "98%", valueNum: 98, suffix: "%", label: "Client Satisfaction", icon: <Users className="w-8 h-8 text-primary" /> },
+  { valueStr: "24/7", label: "Support Available", icon: <Clock className="w-8 h-8 text-primary" /> }, // This will remain static
 ];
 
 const HeroSection: React.FC = () => {
@@ -32,7 +33,6 @@ const HeroSection: React.FC = () => {
           <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary via-pink-500 to-secondary animate-fade-in-up">
             Building Trust
           </span>
-          {/* Removed "One Project at a Time." span */}
         </h1>
         <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground animate-fade-in-up" style={{animationDelay: '0.2s'}}>
           Mager Construction is your partner in creating lasting structures with innovation, transparency, and cutting-edge technology.
@@ -46,13 +46,21 @@ const HeroSection: React.FC = () => {
         {/* Stats Section */}
         <div className="mt-16 md:mt-24 w-full max-w-4xl animate-fade-in-up" style={{animationDelay: '0.6s'}}>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
-            {stats.map((stat, index) => (
+            {statsData.map((stat, index) => (
               <div 
                 key={index} 
                 className="bg-slate-800/50 backdrop-blur-md border border-border p-6 rounded-xl shadow-lg text-center flex flex-col items-center"
               >
-                {/* stat.icon */} {/* Icon can be added here if desired */}
-                <p className="text-3xl md:text-4xl font-bold text-primary">{stat.value}</p>
+                {stat.icon} {/* Icon is displayed here */}
+                {typeof stat.valueNum === 'number' ? (
+                  <AnimatedStat
+                    targetValue={stat.valueNum}
+                    suffix={stat.suffix}
+                    className="text-3xl md:text-4xl font-bold text-primary mt-2"
+                  />
+                ) : (
+                  <p className="text-3xl md:text-4xl font-bold text-primary mt-2">{stat.valueStr}</p>
+                )}
                 <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
               </div>
             ))}

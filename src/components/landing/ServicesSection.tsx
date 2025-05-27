@@ -1,7 +1,8 @@
 
 import React from 'react';
-import { Home, Building2, Landmark } from 'lucide-react'; // Changed Building to Building2 for clarity
+import { Home, Building2, Landmark } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom'; // Import Link
 
 const services = [
   {
@@ -9,18 +10,21 @@ const services = [
     title: 'Individual Projects',
     description: 'Expert home renovations and custom builds, tailored to your personal vision and lifestyle.',
     linkText: 'Explore Home Solutions',
+    linkTo: '/services/individual-projects', // Add link path
   },
   {
     icon: <Building2 size={40} className="text-primary" />,
     title: 'Institutional Builds',
     description: 'Specialized construction for schools, offices, and commercial spaces, focusing on functionality and durability.',
     linkText: 'View Institutional Services',
+    linkTo: '/services/institutional-builds', // Add link path
   },
   {
     icon: <Landmark size={40} className="text-primary" />,
     title: 'Government Contracts',
     description: 'Reliable infrastructure development and public works projects, delivered on time and within budget.',
     linkText: 'Learn About Public Works',
+    linkTo: '/services/government-contracts', // Add link path
   },
 ];
 
@@ -44,8 +48,10 @@ const ServicesSection: React.FC = () => {
               <div className="mb-6">{service.icon}</div>
               <h3 className="text-2xl font-semibold text-foreground mb-3">{service.title}</h3>
               <p className="text-muted-foreground mb-6 flex-grow">{service.description}</p>
-              <Button variant="link" className="text-primary hover:text-primary/80 p-0 self-start">
-                {service.linkText} &rarr;
+              <Button variant="link" className="text-primary hover:text-primary/80 p-0 self-start" asChild>
+                <Link to={service.linkTo}> {/* Use Link component */}
+                  {service.linkText} &rarr;
+                </Link>
               </Button>
             </div>
           ))}
