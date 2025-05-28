@@ -18,7 +18,13 @@ import {
   Package,
   Wrench,
   ClipboardCheck,
-  Calendar
+  Calendar,
+  FolderOpen,
+  CreditCard,
+  MessageSquare,
+  HelpCircle,
+  Camera,
+  Shield
 } from 'lucide-react';
 
 interface DashboardLayoutProps {
@@ -67,6 +73,12 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children, role, userN
           { name: 'Project Overview', href: `/${role}/projects`, icon: Briefcase },
           { name: 'Reports', href: `/${role}/reports`, icon: FileText },
           { name: 'Notifications', href: `/${role}/notifications`, icon: Bell },
+          { name: 'Document Library', href: `/${role}/documents`, icon: FolderOpen },
+          { name: 'Payments & Billing', href: `/${role}/payments`, icon: CreditCard },
+          { name: 'Change Orders', href: `/${role}/change-orders`, icon: MessageSquare },
+          { name: 'Site Photos', href: `/${role}/photos`, icon: Camera },
+          { name: 'Safety & Compliance', href: `/${role}/safety`, icon: Shield },
+          { name: 'Support', href: `/${role}/support`, icon: HelpCircle },
         ];
       default:
         return baseItems;

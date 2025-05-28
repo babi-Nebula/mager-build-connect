@@ -23,6 +23,9 @@ import ContractorReports from './pages/contractor/ContractorReports';
 import ProjectManagement from './pages/contractor/ProjectManagement';
 import QualityControl from './pages/contractor/QualityControl';
 import CustomerDashboard from './pages/customer/CustomerDashboard';
+import ProjectOverview from './pages/customer/ProjectOverview';
+import CustomerReports from './pages/customer/CustomerReports';
+import CustomerNotifications from './pages/customer/CustomerNotifications';
 
 const queryClient = new QueryClient();
 
@@ -57,6 +60,9 @@ const App: React.FC = () => {
             
             {/* Customer Routes */}
             <Route path="/customer/dashboard" element={<CustomerDashboard />} />
+            <Route path="/customer/projects" element={<ProjectOverview />} />
+            <Route path="/customer/reports" element={<CustomerReports />} />
+            <Route path="/customer/notifications" element={<CustomerNotifications />} />
             
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
