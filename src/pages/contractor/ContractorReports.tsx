@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import DashboardLayout from '@/components/dashboard/DashboardLayout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -342,8 +341,8 @@ const ContractorReports = () => {
                   </Card>
                 </div>
               </TabsContent>
-            </Tabs>
-          </CardContent>
+            </CardContent>
+          </Tabs>
         </Card>
       </div>
     </DashboardLayout>

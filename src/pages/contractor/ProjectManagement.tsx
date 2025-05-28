@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import DashboardLayout from '@/components/dashboard/DashboardLayout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -338,8 +337,8 @@ const ProjectManagement = () => {
                   <p className="text-muted-foreground">Project calendar view coming soon...</p>
                 </div>
               </TabsContent>
-            </Tabs>
-          </CardContent>
+            </CardContent>
+          </Tabs>
         </Card>
       </div>
     </DashboardLayout>
