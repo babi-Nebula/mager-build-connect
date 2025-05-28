@@ -1,7 +1,8 @@
 
 import React, { useState } from 'react';
 import { Menu, X, LogIn, Building } from 'lucide-react';
-import { Button } from '@/components/ui/button'; // Assuming Button component from shadcn is available
+import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const navItems = [
   { name: 'Home', href: '#home' },
@@ -32,9 +33,11 @@ const Header: React.FC = () => {
                 {item.name}
               </a>
             ))}
-            <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-              <LogIn size={16} className="mr-2" /> Login
-            </Button>
+            <Link to="/login">
+              <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+                <LogIn size={16} className="mr-2" /> Login
+              </Button>
+            </Link>
           </nav>
           <div className="md:hidden">
             <button
@@ -61,9 +64,11 @@ const Header: React.FC = () => {
                 {item.name}
               </a>
             ))}
-            <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-               <LogIn size={16} className="mr-2" /> Login
-            </Button>
+            <Link to="/login" onClick={() => setMobileMenuOpen(false)}>
+              <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+                 <LogIn size={16} className="mr-2" /> Login
+              </Button>
+            </Link>
           </nav>
         </div>
       )}
