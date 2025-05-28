@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -26,6 +25,12 @@ import CustomerDashboard from './pages/customer/CustomerDashboard';
 import ProjectOverview from './pages/customer/ProjectOverview';
 import CustomerReports from './pages/customer/CustomerReports';
 import CustomerNotifications from './pages/customer/CustomerNotifications';
+import DocumentLibrary from './pages/customer/DocumentLibrary';
+import PaymentsBilling from './pages/customer/PaymentsBilling';
+import ChangeOrders from './pages/customer/ChangeOrders';
+import SitePhotos from './pages/customer/SitePhotos';
+import SafetyCompliance from './pages/customer/SafetyCompliance';
+import Support from './pages/customer/Support';
 
 const queryClient = new QueryClient();
 
@@ -63,6 +68,12 @@ const App: React.FC = () => {
             <Route path="/customer/projects" element={<ProjectOverview />} />
             <Route path="/customer/reports" element={<CustomerReports />} />
             <Route path="/customer/notifications" element={<CustomerNotifications />} />
+            <Route path="/customer/documents" element={<DocumentLibrary />} />
+            <Route path="/customer/payments" element={<PaymentsBilling />} />
+            <Route path="/customer/change-orders" element={<ChangeOrders />} />
+            <Route path="/customer/photos" element={<SitePhotos />} />
+            <Route path="/customer/safety" element={<SafetyCompliance />} />
+            <Route path="/customer/support" element={<Support />} />
             
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
