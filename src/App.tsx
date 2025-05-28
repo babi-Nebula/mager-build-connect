@@ -12,6 +12,10 @@ import InstitutionalBuildsPage from './pages/InstitutionalBuildsPage';
 import GovernmentContractsPage from './pages/GovernmentContractsPage';
 import LoginPage from './pages/LoginPage';
 import AdminDashboard from './pages/admin/AdminDashboard';
+import UserManagement from './pages/admin/UserManagement';
+import Reports from './pages/admin/Reports';
+import NewsManagement from './pages/admin/NewsManagement';
+import Settings from './pages/admin/Settings';
 import ContractorDashboard from './pages/contractor/ContractorDashboard';
 import CustomerDashboard from './pages/customer/CustomerDashboard';
 
@@ -33,6 +37,10 @@ const App: React.FC = () => {
             
             {/* Admin Routes */}
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
+            <Route path="/admin/users" element={<UserManagement />} />
+            <Route path="/admin/reports" element={<Reports />} />
+            <Route path="/admin/news" element={<NewsManagement />} />
+            <Route path="/admin/settings" element={<Settings />} />
             
             {/* Contractor Routes */}
             <Route path="/contractor/dashboard" element={<ContractorDashboard />} />
