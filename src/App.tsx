@@ -17,6 +17,11 @@ import Reports from './pages/admin/Reports';
 import NewsManagement from './pages/admin/NewsManagement';
 import Settings from './pages/admin/Settings';
 import ContractorDashboard from './pages/contractor/ContractorDashboard';
+import EmployeeManagement from './pages/contractor/EmployeeManagement';
+import RawMaterials from './pages/contractor/RawMaterials';
+import ContractorReports from './pages/contractor/ContractorReports';
+import ProjectManagement from './pages/contractor/ProjectManagement';
+import QualityControl from './pages/contractor/QualityControl';
 import CustomerDashboard from './pages/customer/CustomerDashboard';
 
 const queryClient = new QueryClient();
@@ -44,6 +49,11 @@ const App: React.FC = () => {
             
             {/* Contractor Routes */}
             <Route path="/contractor/dashboard" element={<ContractorDashboard />} />
+            <Route path="/contractor/projects" element={<ProjectManagement />} />
+            <Route path="/contractor/employees" element={<EmployeeManagement />} />
+            <Route path="/contractor/materials" element={<RawMaterials />} />
+            <Route path="/contractor/quality" element={<QualityControl />} />
+            <Route path="/contractor/reports" element={<ContractorReports />} />
             
             {/* Customer Routes */}
             <Route path="/customer/dashboard" element={<CustomerDashboard />} />

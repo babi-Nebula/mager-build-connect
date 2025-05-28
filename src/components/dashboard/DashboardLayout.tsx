@@ -14,7 +14,11 @@ import {
   BarChart3,
   Briefcase,
   DollarSign,
-  Bell
+  Bell,
+  Package,
+  Wrench,
+  ClipboardCheck,
+  Calendar
 } from 'lucide-react';
 
 interface DashboardLayoutProps {
@@ -36,7 +40,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children, role, userN
 
   const getNavigationItems = () => {
     const baseItems = [
-      { name: 'Home', href: `/${role}/dashboard`, icon: Home },
+      { name: 'Dashboard', href: `/${role}/dashboard`, icon: Home },
     ];
 
     switch (role) {
@@ -51,8 +55,10 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children, role, userN
       case 'contractor':
         return [
           ...baseItems,
+          { name: 'Project Management', href: `/${role}/projects`, icon: Calendar },
           { name: 'Employee Management', href: `/${role}/employees`, icon: Users },
-          { name: 'Raw Materials', href: `/${role}/materials`, icon: Briefcase },
+          { name: 'Raw Materials', href: `/${role}/materials`, icon: Package },
+          { name: 'Quality Control', href: `/${role}/quality`, icon: ClipboardCheck },
           { name: 'Reports', href: `/${role}/reports`, icon: BarChart3 },
         ];
       case 'customer':
