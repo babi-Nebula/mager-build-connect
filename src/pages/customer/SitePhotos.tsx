@@ -62,7 +62,7 @@ const SitePhotos = () => {
       photographer: 'Project Manager',
       photoCount: 32,
       description: 'Overall project progress documentation',
-      thumbnail: 'https://images.unsplash.com/photo-1590725175146-531924c5253b?w=400&h=300&fit=crop',
+      thumbnail: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=400&h=300&fit=crop',
       phase: 'Multiple',
       weather: 'Clear',
       tags: ['progress', 'overview', 'milestone']
@@ -88,7 +88,7 @@ const SitePhotos = () => {
       photographer: 'QC Inspector',
       photoCount: 8,
       description: 'Quality assurance documentation photos',
-      thumbnail: 'https://images.unsplash.com/photo-1558618047-b12e3c2b51fb?w=400&h=300&fit=crop',
+      thumbnail: 'https://images.unsplash.com/photo-1486718448742-163732cd1544?w=400&h=300&fit=crop',
       phase: 'Quality',
       weather: 'Clear',
       tags: ['quality', 'inspection', 'documentation']
@@ -127,7 +127,7 @@ const SitePhotos = () => {
       photographer: 'Site Manager',
       photoCount: 35,
       description: 'Building envelope and exterior finishing work',
-      thumbnail: 'https://images.unsplash.com/photo-1567461519105-b83d44a6d4fb?w=400&h=300&fit=crop',
+      thumbnail: 'https://images.unsplash.com/photo-1496307653780-42ee777d4833?w=400&h=300&fit=crop',
       phase: 'Finishing',
       weather: 'Overcast',
       tags: ['cladding', 'exterior', 'envelope']
@@ -140,7 +140,7 @@ const SitePhotos = () => {
       photographer: 'Framing Foreman',
       photoCount: 19,
       description: 'Metal stud framing for office spaces',
-      thumbnail: 'https://images.unsplash.com/photo-1493225655618-72e3cd67b0a0?w=400&h=300&fit=crop',
+      thumbnail: 'https://images.unsplash.com/photo-1431576901776-e539bd916ba2?w=400&h=300&fit=crop',
       phase: 'Interior',
       weather: 'Clear',
       tags: ['framing', 'interior', 'offices']
@@ -166,7 +166,7 @@ const SitePhotos = () => {
       photographer: 'Project Manager',
       photoCount: 42,
       description: 'Roof membrane and weatherproofing completion',
-      thumbnail: 'https://images.unsplash.com/photo-1574263867128-5e42bdd5f2b6?w=400&h=300&fit=crop',
+      thumbnail: 'https://images.unsplash.com/photo-1459767129954-1b1c1f9b9ace?w=400&h=300&fit=crop',
       phase: 'Envelope',
       weather: 'Clear',
       tags: ['roofing', 'membrane', 'weatherproofing']
