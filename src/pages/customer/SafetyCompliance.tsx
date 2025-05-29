@@ -118,7 +118,7 @@ const SafetyCompliance = () => {
           <Card className="bg-slate-800/50 backdrop-blur-lg border border-border">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium text-muted-foreground">Compliance Rate</CardTitle>
-              <Hard Hat className="h-4 w-4 text-blue-400" />
+              <HardHat className="h-4 w-4 text-blue-400" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-foreground">97%</div>
