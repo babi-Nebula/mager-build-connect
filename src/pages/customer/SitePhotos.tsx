@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import DashboardLayout from '@/components/dashboard/DashboardLayout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -24,7 +23,7 @@ const SitePhotos = () => {
       photographer: 'Site Manager',
       photoCount: 24,
       description: 'Excavation and foundation pouring progress',
-      thumbnail: '/api/placeholder/300/200',
+      thumbnail: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400&h=300&fit=crop',
       phase: 'Foundation',
       weather: 'Clear',
       tags: ['excavation', 'concrete', 'foundation']
@@ -37,7 +36,7 @@ const SitePhotos = () => {
       photographer: 'Safety Officer',
       photoCount: 18,
       description: 'Steel beam installation and welding work',
-      thumbnail: '/api/placeholder/300/200',
+      thumbnail: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=300&fit=crop',
       phase: 'Structure',
       weather: 'Partly Cloudy',
       tags: ['steel', 'welding', 'structure']
@@ -50,7 +49,7 @@ const SitePhotos = () => {
       photographer: 'Safety Inspector',
       photoCount: 12,
       description: 'Weekly safety compliance documentation',
-      thumbnail: '/api/placeholder/300/200',
+      thumbnail: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop',
       phase: 'General',
       weather: 'Clear',
       tags: ['safety', 'inspection', 'compliance']
@@ -63,7 +62,7 @@ const SitePhotos = () => {
       photographer: 'Project Manager',
       photoCount: 32,
       description: 'Overall project progress documentation',
-      thumbnail: '/api/placeholder/300/200',
+      thumbnail: 'https://images.unsplash.com/photo-1590725175146-531924c5253b?w=400&h=300&fit=crop',
       phase: 'Multiple',
       weather: 'Clear',
       tags: ['progress', 'overview', 'milestone']
@@ -76,7 +75,7 @@ const SitePhotos = () => {
       photographer: 'Electrical Foreman',
       photoCount: 15,
       description: 'Electrical conduit and rough-in installation',
-      thumbnail: '/api/placeholder/300/200',
+      thumbnail: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=400&h=300&fit=crop',
       phase: 'MEP',
       weather: 'Overcast',
       tags: ['electrical', 'conduit', 'mep']
@@ -89,10 +88,88 @@ const SitePhotos = () => {
       photographer: 'QC Inspector',
       photoCount: 8,
       description: 'Quality assurance documentation photos',
-      thumbnail: '/api/placeholder/300/200',
+      thumbnail: 'https://images.unsplash.com/photo-1558618047-b12e3c2b51fb?w=400&h=300&fit=crop',
       phase: 'Quality',
       weather: 'Clear',
       tags: ['quality', 'inspection', 'documentation']
+    },
+    {
+      id: 7,
+      title: 'Concrete Pour - Level 3',
+      category: 'Foundation',
+      date: '2024-02-01',
+      photographer: 'Site Supervisor',
+      photoCount: 28,
+      description: 'Third floor concrete slab pouring operation',
+      thumbnail: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=400&h=300&fit=crop',
+      phase: 'Structure',
+      weather: 'Clear',
+      tags: ['concrete', 'slab', 'structure']
+    },
+    {
+      id: 8,
+      title: 'HVAC Installation Progress',
+      category: 'MEP',
+      date: '2024-02-03',
+      photographer: 'MEP Coordinator',
+      photoCount: 22,
+      description: 'HVAC ductwork and equipment installation',
+      thumbnail: 'https://images.unsplash.com/photo-1592595896551-12b371d546d5?w=400&h=300&fit=crop',
+      phase: 'MEP',
+      weather: 'Clear',
+      tags: ['hvac', 'ductwork', 'mechanical']
+    },
+    {
+      id: 9,
+      title: 'Exterior Cladding Installation',
+      category: 'Structure',
+      date: '2024-02-05',
+      photographer: 'Site Manager',
+      photoCount: 35,
+      description: 'Building envelope and exterior finishing work',
+      thumbnail: 'https://images.unsplash.com/photo-1567461519105-b83d44a6d4fb?w=400&h=300&fit=crop',
+      phase: 'Finishing',
+      weather: 'Overcast',
+      tags: ['cladding', 'exterior', 'envelope']
+    },
+    {
+      id: 10,
+      title: 'Interior Framing - Office Floors',
+      category: 'Structure',
+      date: '2024-02-08',
+      photographer: 'Framing Foreman',
+      photoCount: 19,
+      description: 'Metal stud framing for office spaces',
+      thumbnail: 'https://images.unsplash.com/photo-1493225655618-72e3cd67b0a0?w=400&h=300&fit=crop',
+      phase: 'Interior',
+      weather: 'Clear',
+      tags: ['framing', 'interior', 'offices']
+    },
+    {
+      id: 11,
+      title: 'Weekly Safety Meeting',
+      category: 'Safety',
+      date: '2024-02-10',
+      photographer: 'Safety Officer',
+      photoCount: 6,
+      description: 'Team safety briefing and equipment check',
+      thumbnail: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop',
+      phase: 'General',
+      weather: 'Clear',
+      tags: ['safety', 'meeting', 'team']
+    },
+    {
+      id: 12,
+      title: 'Roofing Installation Complete',
+      category: 'Progress',
+      date: '2024-02-12',
+      photographer: 'Project Manager',
+      photoCount: 42,
+      description: 'Roof membrane and weatherproofing completion',
+      thumbnail: 'https://images.unsplash.com/photo-1574263867128-5e42bdd5f2b6?w=400&h=300&fit=crop',
+      phase: 'Envelope',
+      weather: 'Clear',
+      tags: ['roofing', 'membrane', 'weatherproofing']
     }
   ];
 
@@ -169,7 +246,7 @@ const SitePhotos = () => {
               <Calendar className="h-4 w-4 text-green-400" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-foreground">3</div>
+              <div className="text-2xl font-bold text-foreground">4</div>
               <p className="text-xs text-muted-foreground">New galleries</p>
             </CardContent>
           </Card>
@@ -228,7 +305,7 @@ const SitePhotos = () => {
                   <Card key={gallery.id} className="bg-muted/20 border border-border overflow-hidden hover:shadow-lg transition-shadow">
                     <div className="aspect-video bg-muted relative">
                       <img 
-                        src={`https://images.unsplash.com/${gallery.thumbnail}`}
+                        src={gallery.thumbnail}
                         alt={gallery.title}
                         className="w-full h-full object-cover"
                       />
@@ -289,7 +366,7 @@ const SitePhotos = () => {
                       <div className="flex items-center space-x-4">
                         <div className="w-24 h-16 bg-muted rounded overflow-hidden flex-shrink-0">
                           <img 
-                            src={`https://images.unsplash.com/${gallery.thumbnail}`}
+                            src={gallery.thumbnail}
                             alt={gallery.title}
                             className="w-full h-full object-cover"
                           />
