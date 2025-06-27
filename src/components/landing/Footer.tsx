@@ -1,59 +1,75 @@
+/** @format */
 
-import React from 'react';
-import { Linkedin, Facebook, Instagram, Building, Mail, Phone, MapPin } from 'lucide-react';
+import React from "react";
+import {
+  Linkedin,
+  Facebook,
+  Instagram,
+  Building,
+  Mail,
+  Phone,
+  MapPin,
+} from "lucide-react";
 
 const quickLinks = [
-  { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
-  { name: 'Services', href: '#services' },
-  { name: 'Projects', href: '#news' }, // Changed from 'News' to 'Projects' to match image
-  { name: 'Contact', href: '#contact' },
+  { name: "Home", href: "#home" },
+  { name: "About", href: "#about" },
+  { name: "Services", href: "#services" },
+  { name: "Projects", href: "#news" }, // Changed from 'News' to 'Projects' to match image
+  { name: "Contact", href: "#contact" },
 ];
 
 const servicesLinks = [
-  { name: 'Residential Construction', href: '#' },
-  { name: 'Commercial Buildings', href: '#' },
-  { name: 'Infrastructure Projects', href: '#' },
-  { name: 'Project Management', href: '#' },
-  { name: 'Consulting Services', href: '#' },
+  { name: "Residential Construction", href: "#" },
+  { name: "Commercial Buildings", href: "#" },
+  { name: "Infrastructure Projects", href: "#" },
+  { name: "Project Management", href: "#" },
+  { name: "Consulting Services", href: "#" },
 ];
 
 const socialLinks = [
-  { name: 'Facebook', icon: <Facebook size={20} />, href: '#' },
-  { name: 'Instagram', icon: <Instagram size={20} />, href: '#' },
-  { name: 'LinkedIn', icon: <Linkedin size={20} />, href: '#' },
+  { name: "Facebook", icon: <Facebook size={20} />, href: "#" },
+  { name: "Instagram", icon: <Instagram size={20} />, href: "#" },
+  { name: "LinkedIn", icon: <Linkedin size={20} />, href: "#" },
   // { name: 'Twitter', icon: <Twitter size={20} />, href: '#' }, // Example if Twitter is needed
 ];
 
 const legalLinks = [
-    { name: 'Privacy Policy', href: '#' },
-    { name: 'Terms of Service', href: '#' },
-    { name: 'Cookie Policy', href: '#' },
+  { name: "Privacy Policy", href: "#" },
+  { name: "Terms of Service", href: "#" },
+  { name: "Cookie Policy", href: "#" },
 ];
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-slate-900 border-t border-border text-muted-foreground">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+    <footer className='bg-slate-900 border-t border-border text-muted-foreground'>
+      <div className='container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10'>
           {/* Column 1: Mager Construction */}
-          <div className="space-y-4">
-            <a href="#home" className="flex items-center space-x-2 text-xl font-bold text-primary mb-2">
+          <div className='space-y-4'>
+            <a
+              href='#home'
+              className='flex items-center space-x-2 text-xl font-bold text-primary mb-2'>
               <Building size={28} />
               <span>Mager Construction</span>
             </a>
-            <p className="text-sm">
-              Building trust and excellence in construction management through innovative technology and unwavering commitment to quality.
+            <p className='text-sm'>
+              Building trust and excellence in construction management through
+              innovative technology and unwavering commitment to quality.
             </p>
           </div>
 
           {/* Column 2: Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold text-foreground mb-4">Quick Links</h3>
-            <ul className="space-y-2">
+            <h3 className='text-lg font-semibold text-foreground mb-4'>
+              Quick Links
+            </h3>
+            <ul className='space-y-2'>
               {quickLinks.map((item) => (
                 <li key={item.name}>
-                  <a href={item.href} className="text-sm hover:text-primary transition-colors">
+                  <a
+                    href={item.href}
+                    className='text-sm hover:text-primary transition-colors'>
                     {item.name}
                   </a>
                 </li>
@@ -63,11 +79,15 @@ const Footer: React.FC = () => {
 
           {/* Column 3: Services */}
           <div>
-            <h3 className="text-lg font-semibold text-foreground mb-4">Services</h3>
-            <ul className="space-y-2">
+            <h3 className='text-lg font-semibold text-foreground mb-4'>
+              Services
+            </h3>
+            <ul className='space-y-2'>
               {servicesLinks.map((item) => (
                 <li key={item.name}>
-                  <a href={item.href} className="text-sm hover:text-primary transition-colors">
+                  <a
+                    href={item.href}
+                    className='text-sm hover:text-primary transition-colors'>
                     {item.name}
                   </a>
                 </li>
@@ -77,27 +97,37 @@ const Footer: React.FC = () => {
 
           {/* Column 4: Connect With Us */}
           <div>
-            <h3 className="text-lg font-semibold text-foreground mb-4">Connect With Us</h3>
-            <div className="space-y-3 text-sm">
-              <a href="tel:+15551234567" className="flex items-center hover:text-primary transition-colors">
-                <Phone size={16} className="mr-2 flex-shrink-0" /> (555) 123-4567
+            <h3 className='text-lg font-semibold text-foreground mb-4'>
+              Connect With Us
+            </h3>
+            <div className='space-y-3 text-sm'>
+              <a
+                href='tel:+15551234567'
+                className='flex items-center hover:text-primary transition-colors'>
+                <Phone size={16} className='mr-2 flex-shrink-0' /> (555)
+                123-4567
               </a>
-              <a href="mailto:info@magerconstruction.com" className="flex items-center hover:text-primary transition-colors">
-                <Mail size={16} className="mr-2 flex-shrink-0" /> info@magerconstruction.com
+              <a
+                href='mailto:info@magerconstruction.com'
+                className='flex items-center hover:text-primary transition-colors'>
+                <Mail size={16} className='mr-2 flex-shrink-0' />{" "}
+                info@magerconstruction.com
               </a>
-              <p className="flex items-start">
-                <MapPin size={16} className="mr-2 mt-1 flex-shrink-0" />
-                <span>Seattle, WA <br/>(Specific address can go here)</span>
+              <p className='flex items-start'>
+                <MapPin size={16} className='mr-2 mt-1 flex-shrink-0' />
+                <span>
+                  Seattle, WA <br />
+                  (Specific address can go here)
+                </span>
               </p>
             </div>
-            <div className="flex space-x-3 mt-4">
+            <div className='flex space-x-3 mt-4'>
               {socialLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   aria-label={link.name}
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
+                  className='text-muted-foreground hover:text-primary transition-colors'>
                   {link.icon}
                 </a>
               ))}
@@ -105,15 +135,19 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="border-t border-border pt-8 flex flex-col sm:flex-row justify-between items-center text-xs">
-          <p className="mb-2 sm:mb-0">
-            &copy; {new Date().getFullYear()} Mager Construction. All rights reserved.
+        <div className='border-t border-border pt-8 flex flex-col sm:flex-row justify-between items-center text-xs'>
+          <p className='mb-2 sm:mb-0'>
+            &copy; {new Date().getFullYear()} Mager Construction. All rights
+            reserved.
           </p>
-          <div className="flex space-x-4">
+          <div className='flex space-x-4'>
             {legalLinks.map((link) => (
-                <a key={link.name} href={link.href} className="hover:text-primary transition-colors">
-                    {link.name}
-                </a>
+              <a
+                key={link.name}
+                href={link.href}
+                className='hover:text-primary transition-colors'>
+                {link.name}
+              </a>
             ))}
           </div>
         </div>

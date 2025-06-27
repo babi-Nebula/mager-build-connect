@@ -1,5 +1,6 @@
+/** @format */
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 
 interface AnimatedStatProps {
   targetValue: number;
@@ -12,9 +13,9 @@ interface AnimatedStatProps {
 const AnimatedStat: React.FC<AnimatedStatProps> = ({
   targetValue,
   duration = 2000,
-  prefix = '',
-  suffix = '',
-  className = '',
+  prefix = "",
+  suffix = "",
+  className = "",
 }) => {
   const [currentValue, setCurrentValue] = useState(0);
   const statRef = useRef<HTMLParagraphElement>(null);
@@ -32,7 +33,10 @@ const AnimatedStat: React.FC<AnimatedStatProps> = ({
             let startTimestamp: number | null = null;
             const step = (timestamp: number) => {
               if (!startTimestamp) startTimestamp = timestamp;
-              const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+              const progress = Math.min(
+                (timestamp - startTimestamp) / duration,
+                1
+              );
               setCurrentValue(Math.floor(progress * targetValue));
               if (progress < 1) {
                 animationFrameId.current = requestAnimationFrame(step);
@@ -59,7 +63,9 @@ const AnimatedStat: React.FC<AnimatedStatProps> = ({
 
   return (
     <p className={className} ref={statRef}>
-      {prefix}{currentValue}{suffix}
+      {prefix}
+      {currentValue}
+      {suffix}
     </p>
   );
 };
