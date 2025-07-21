@@ -125,7 +125,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({
   const navigationItems = getNavigationItems();
 
   return (
-    <div className='min-h-screen bg-background flex w-full'>
+    <div className='min-h-screen bg-background dark-blue-theme flex w-full'>
       {/* Sidebar */}
       <div
         className={`fixed inset-y-0 left-0 z-50 w-64 bg-slate-900/95 backdrop-blur-lg border-r border-border transform ${

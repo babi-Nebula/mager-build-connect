@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const IndividualProjectsPage: React.FC = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-background">
+    <div className="flex flex-col min-h-screen bg-background dark-blue-theme">
       <Header />
       <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         <div className="max-w-3xl mx-auto text-center">

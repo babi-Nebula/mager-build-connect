@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle, Users, Clock } from "lucide-react";
 import AnimatedStat from "./AnimatedStat";
 
-// Placeholder image URL - user can replace this
-const heroImageUrl = "/lovable-uploads/photo-1493397212122-2b85dda8106b.jpeg"; // A building with wavy lines
+// Construction worker hero image
+const heroImageUrl = "/lovable-uploads/9d37b7d9-b562-4fc4-b775-b1ed4f5e5555.png"; // Professional construction worker
 
 interface StatDataItem {
   valueStr: string;

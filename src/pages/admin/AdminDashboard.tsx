@@ -27,7 +27,7 @@ const AdminDashboard = () => {
 
   return (
     <SidebarProvider>
-      <div className='min-h-screen flex w-full bg-background'>
+      <div className='min-h-screen flex w-full bg-background dark-blue-theme'>
         <AdminSidebar />
         <SidebarInset className='flex-1'>
           <div className='p-6 space-y-6'>
