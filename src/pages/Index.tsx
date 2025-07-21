@@ -10,9 +10,9 @@ import Footer from '@/components/landing/Footer';
 
 const Index = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-background">
+    <div className="flex flex-col min-h-screen" style={{ backgroundColor: '#152238' }}>
       <Header />
-      <main className="flex-grow" style={{ backgroundColor: '#152238' }}>
+      <main className="flex-grow">
         <HeroSection />
         <AboutUsSection />
         <ServicesSection />
