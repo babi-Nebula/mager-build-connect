@@ -53,10 +53,10 @@ const NewsSection: React.FC = () => {
     <section id='news' className='py-16 md:py-24 bg-background'>
       <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='text-center mb-12 md:mb-16'>
-          <h2 className='text-3xl md:text-4xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary'>
+          <h2 className='text-3xl md:text-4xl font-bold tracking-tight text-white'>
             Available Construction Projects
           </h2>
-          <p className='mt-4 text-lg text-muted-foreground'>
+          <p className='mt-4 text-lg text-gray-300'>
             Join us in building the future. Explore current opportunities.
           </p>
         </div>

@@ -42,14 +42,14 @@ const legalLinks = [
 
 const Footer: React.FC = () => {
   return (
-    <footer className='bg-slate-900 border-t border-border text-muted-foreground'>
+    <footer className='bg-slate-900 border-t border-white/20 text-gray-300'>
       <div className='container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16'>
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10'>
           {/* Column 1: Mager Construction */}
           <div className='space-y-4'>
             <a
               href='#home'
-              className='flex items-center space-x-2 text-xl font-bold text-primary mb-2'>
+              className='flex items-center space-x-2 text-xl font-bold text-blue-400 mb-2'>
               <Building size={28} />
               <span>Mager Construction</span>
             </a>
@@ -61,7 +61,7 @@ const Footer: React.FC = () => {
 
           {/* Column 2: Quick Links */}
           <div>
-            <h3 className='text-lg font-semibold text-foreground mb-4'>
+            <h3 className='text-lg font-semibold text-white mb-4'>
               Quick Links
             </h3>
             <ul className='space-y-2'>
@@ -69,7 +69,7 @@ const Footer: React.FC = () => {
                 <li key={item.name}>
                   <a
                     href={item.href}
-                    className='text-sm hover:text-primary transition-colors'>
+                    className='text-sm hover:text-blue-400 transition-colors'>
                     {item.name}
                   </a>
                 </li>
@@ -79,7 +79,7 @@ const Footer: React.FC = () => {
 
           {/* Column 3: Services */}
           <div>
-            <h3 className='text-lg font-semibold text-foreground mb-4'>
+            <h3 className='text-lg font-semibold text-white mb-4'>
               Services
             </h3>
             <ul className='space-y-2'>
@@ -87,7 +87,7 @@ const Footer: React.FC = () => {
                 <li key={item.name}>
                   <a
                     href={item.href}
-                    className='text-sm hover:text-primary transition-colors'>
+                    className='text-sm hover:text-blue-400 transition-colors'>
                     {item.name}
                   </a>
                 </li>
@@ -97,19 +97,19 @@ const Footer: React.FC = () => {
 
           {/* Column 4: Connect With Us */}
           <div>
-            <h3 className='text-lg font-semibold text-foreground mb-4'>
+            <h3 className='text-lg font-semibold text-white mb-4'>
               Connect With Us
             </h3>
             <div className='space-y-3 text-sm'>
               <a
                 href='tel:+15551234567'
-                className='flex items-center hover:text-primary transition-colors'>
+                className='flex items-center hover:text-blue-400 transition-colors'>
                 <Phone size={16} className='mr-2 flex-shrink-0' /> (555)
                 123-4567
               </a>
               <a
                 href='mailto:info@magerconstruction.com'
-                className='flex items-center hover:text-primary transition-colors'>
+                className='flex items-center hover:text-blue-400 transition-colors'>
                 <Mail size={16} className='mr-2 flex-shrink-0' />{" "}
                 info@magerconstruction.com
               </a>
@@ -127,7 +127,7 @@ const Footer: React.FC = () => {
                   key={link.name}
                   href={link.href}
                   aria-label={link.name}
-                  className='text-muted-foreground hover:text-primary transition-colors'>
+                  className='text-gray-400 hover:text-blue-400 transition-colors'>
                   {link.icon}
                 </a>
               ))}
@@ -135,7 +135,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className='border-t border-border pt-8 flex flex-col sm:flex-row justify-between items-center text-xs'>
+        <div className='border-t border-white/20 pt-8 flex flex-col sm:flex-row justify-between items-center text-xs'>
           <p className='mb-2 sm:mb-0'>
             &copy; {new Date().getFullYear()} Mager Construction. All rights
             reserved.
@@ -145,7 +145,7 @@ const Footer: React.FC = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className='hover:text-primary transition-colors'>
+                className='hover:text-blue-400 transition-colors'>
                 {link.name}
               </a>
             ))}

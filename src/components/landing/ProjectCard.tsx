@@ -37,21 +37,21 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
   return (
     <div
-      className='bg-slate-800/50 backdrop-blur-lg border border-border rounded-xl shadow-xl overflow-hidden flex flex-col h-full transform hover:scale-105 transition-transform duration-300 animate-fade-in-up'
+      className='bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl shadow-xl overflow-hidden flex flex-col h-full transform hover:scale-105 transition-transform duration-300 animate-fade-in-up'
       style={{ animationDelay }}>
       <img src={imageSrc} alt={title} className='w-full h-48 object-cover' />
       <div className='p-6 flex flex-col flex-grow'>
-        <h3 className='text-xl font-semibold text-foreground mb-2'>{title}</h3>
-        <div className='flex items-center text-sm text-muted-foreground mb-1'>
-          <MapPin size={16} className='mr-2 text-secondary' /> {location}
+        <h3 className='text-xl font-semibold text-white mb-2'>{title}</h3>
+        <div className='flex items-center text-sm text-gray-300 mb-1'>
+          <MapPin size={16} className='mr-2 text-blue-400' /> {location}
         </div>
-        <div className='flex items-center text-sm text-muted-foreground mb-4'>
-          <DollarSign size={16} className='mr-2 text-secondary' /> {budget}
+        <div className='flex items-center text-sm text-gray-300 mb-4'>
+          <DollarSign size={16} className='mr-2 text-blue-400' /> {budget}
         </div>
         <div className='mt-auto'>
           <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
             <DialogTrigger asChild>
-              <Button className='w-full bg-primary hover:bg-primary/90 text-primary-foreground'>
+              <Button className='w-full bg-blue-600 hover:bg-blue-700 text-white'>
                 Apply as Contractor
               </Button>
             </DialogTrigger>
