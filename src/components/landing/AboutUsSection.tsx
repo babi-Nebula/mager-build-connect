@@ -40,6 +40,27 @@ const AboutUsSection: React.FC = () => {
             mutual success.
           </p>
         </div>
+        
+        {/* CEO Section */}
+        <div className='flex flex-col md:flex-row items-center gap-8 mb-16 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-8'>
+          <div className='flex-shrink-0'>
+            <img 
+              src='/lovable-uploads/1c060d8b-3c65-4c13-9227-23f5c6458367.png'
+              alt='Habtewolde Bizuayhu - CEO'
+              className='w-48 h-48 rounded-full object-cover border-4 border-blue-400/30'
+            />
+          </div>
+          <div className='text-center md:text-left'>
+            <h3 className='text-2xl font-bold text-white mb-2'>Habtewolde Bizuayhu</h3>
+            <p className='text-blue-400 font-semibold mb-4'>Chief Executive Officer</p>
+            <p className='text-gray-300 leading-relaxed'>
+              With extensive expertise in Construction Technology and Management, Habtewolde brings 
+              visionary leadership to Mager Construction. His educational background and practical 
+              experience in the construction industry drive our commitment to excellence and innovation 
+              in every project we undertake.
+            </p>
+          </div>
+        </div>
         <div className='grid md:grid-cols-3 gap-8 md:gap-12'>
           {valueProps.map((prop, index) => (
             <div
