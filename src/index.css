@@ -37,27 +37,31 @@
     --radius: 0.5rem;
   }
 
-  .dark-blue-theme {
-    --background: 224 71% 4%; /* Deep dark blue */
-    --foreground: 210 20% 90%; /* Light gray for text */
+  .dark {
+    --background: 224 71% 8%; /* Deep dark blue #152238 */
+    --foreground: 0 0% 100%; /* Pure white text */
     
-    --card: 224 71% 10%; /* Darker blue for cards */
-    --card-foreground: 210 20% 90%;
+    --card: 224 71% 12%; /* Slightly lighter blue for cards */
+    --card-foreground: 0 0% 100%; /* Pure white text on cards */
     
-    --popover: 224 71% 4%;
-    --popover-foreground: 210 20% 90%;
+    --popover: 224 71% 8%;
+    --popover-foreground: 0 0% 100%;
     
-    --secondary: 224 30% 25%; /* Dark blue-gray for secondary */
-    --secondary-foreground: 210 20% 90%;
+    --primary: 214 95% 55%; /* Blue-400 for accents */
+    --primary-foreground: 0 0% 100%;
     
-    --muted: 224 30% 25%;
-    --muted-foreground: 210 20% 70%;
+    --secondary: 224 30% 20%; /* Dark blue-gray for secondary */
+    --secondary-foreground: 0 0% 100%;
     
-    --accent: 224 30% 25%;
-    --accent-foreground: 210 20% 90%;
+    --muted: 224 30% 20%;
+    --muted-foreground: 210 20% 80%; /* Light gray for muted text */
     
-    --border: 210 20% 90% / 0.2; /* Semi-transparent borders */
-    --input: 224 30% 25%;
+    --accent: 214 95% 55%; /* Blue-400 for accents */
+    --accent-foreground: 0 0% 100%;
+    
+    --border: 210 20% 90%; /* Light borders */
+    --input: 224 30% 20%;
+    --ring: 214 95% 55%;
   }
 }
 
@@ -71,6 +75,9 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', sans-serif;
+  }
+  html {
+    @apply dark;
   }
   /* Custom scrollbar for a more modern look */
   body::-webkit-scrollbar {
