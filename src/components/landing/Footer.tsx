@@ -102,22 +102,20 @@ const Footer: React.FC = () => {
             </h3>
             <div className='space-y-3 text-sm'>
               <a
-                href='tel:+15551234567'
+                href='tel:+251976315798'
                 className='flex items-center hover:text-blue-400 transition-colors'>
-                <Phone size={16} className='mr-2 flex-shrink-0' /> (555)
-                123-4567
+                <Phone size={16} className='mr-2 flex-shrink-0' /> +251 976 315 798
               </a>
               <a
-                href='mailto:info@magerconstruction.com'
+                href='mailto:henios865@gmail.com'
                 className='flex items-center hover:text-blue-400 transition-colors'>
                 <Mail size={16} className='mr-2 flex-shrink-0' />{" "}
-                info@magerconstruction.com
+                henios865@gmail.com
               </a>
               <p className='flex items-start'>
                 <MapPin size={16} className='mr-2 mt-1 flex-shrink-0' />
                 <span>
-                  Seattle, WA <br />
-                  (Specific address can go here)
+                  Addis Ababa, Ethiopia
                 </span>
               </p>
             </div>
