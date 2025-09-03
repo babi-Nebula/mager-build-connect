@@ -39,10 +39,10 @@ const ServicesSection: React.FC = () => {
       className='py-16 md:py-24 bg-background/70 backdrop-blur-sm'>
       <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='text-center mb-12 md:mb-16'>
-          <h2 className='text-3xl md:text-4xl font-bold tracking-tight text-white'>
+          <h2 className='text-3xl md:text-4xl font-bold tracking-tight text-black'>
             Our Services
           </h2>
-          <p className='mt-4 text-lg text-gray-300'>
+          <p className='mt-4 text-lg text-gray-800'>
             Catering to diverse needs with expertise and precision.
           </p>
         </div>
@@ -53,10 +53,10 @@ const ServicesSection: React.FC = () => {
               className='flex flex-col p-8 bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl shadow-xl hover:shadow-blue-500/30 transition-all duration-300 transform hover:-translate-y-1 animate-fade-in-up'
               style={{ animationDelay: `${index * 0.15}s` }}>
               <div className='mb-6'>{service.icon}</div>
-              <h3 className='text-2xl font-semibold text-white mb-3'>
+              <h3 className='text-2xl font-semibold text-black mb-3'>
                 {service.title}
               </h3>
-              <p className='text-gray-200 mb-6 flex-grow'>
+              <p className='text-gray-800 mb-6 flex-grow'>
                 {service.description}
               </p>
               <Button

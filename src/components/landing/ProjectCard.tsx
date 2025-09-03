@@ -41,12 +41,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       style={{ animationDelay }}>
       <img src={imageSrc} alt={title} className='w-full h-48 object-cover' />
       <div className='p-6 flex flex-col flex-grow'>
-        <h3 className='text-xl font-semibold text-white mb-2'>{title}</h3>
-        <div className='flex items-center text-sm text-gray-300 mb-1'>
-          <MapPin size={16} className='mr-2 text-blue-400' /> {location}
+        <h3 className='text-xl font-semibold text-black mb-2'>{title}</h3>
+        <div className='flex items-center text-sm text-gray-800 mb-1'>
+          <MapPin size={16} className='mr-2 text-blue-600' /> {location}
         </div>
-        <div className='flex items-center text-sm text-gray-300 mb-4'>
-          <DollarSign size={16} className='mr-2 text-blue-400' /> {budget}
+        <div className='flex items-center text-sm text-gray-800 mb-4'>
+          <DollarSign size={16} className='mr-2 text-blue-600' /> {budget}
         </div>
         <div className='mt-auto'>
           <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>

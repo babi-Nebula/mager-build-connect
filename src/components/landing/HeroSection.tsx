@@ -56,12 +56,12 @@ const HeroSection: React.FC = () => {
 
       <div className='relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 flex flex-col items-center'>
         <h1 className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight'>
-          <span className='block text-white animate-fade-in-up'>
+          <span className='block text-black animate-fade-in-up'>
             Building Trust
           </span>
         </h1>
         <p
-          className='mt-6 max-w-2xl mx-auto text-lg md:text-xl text-gray-200 animate-fade-in-up'
+          className='mt-6 max-w-2xl mx-auto text-lg md:text-xl text-gray-800 animate-fade-in-up'
           style={{ animationDelay: "0.2s" }}>
           Mager Construction is your partner in creating lasting structures with
           innovation, transparency, and cutting-edge technology.
@@ -90,14 +90,14 @@ const HeroSection: React.FC = () => {
                   <AnimatedStat
                     targetValue={stat.valueNum}
                     suffix={stat.suffix}
-                    className='text-3xl md:text-4xl font-bold text-white mt-2'
+                    className='text-3xl md:text-4xl font-bold text-black mt-2'
                   />
                 ) : (
-                  <p className='text-3xl md:text-4xl font-bold text-white mt-2'>
+                  <p className='text-3xl md:text-4xl font-bold text-black mt-2'>
                     {stat.valueStr}
                   </p>
                 )}
-                <p className='text-sm text-gray-200 mt-1'>
+                <p className='text-sm text-gray-800 mt-1'>
                   {stat.label}
                 </p>
               </div>
