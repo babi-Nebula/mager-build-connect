@@ -8,3 +8,21 @@
 .circular-gallery:active {
   cursor: grabbing;
 }
+
+.circular-gallery canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .circular-gallery {
+    height: 400px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .circular-gallery {
+    height: 350px !important;
+  }
+}

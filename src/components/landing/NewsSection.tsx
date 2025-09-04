@@ -1,7 +1,8 @@
 /** @format */
 
-import React from "react";
+import React, { useState } from "react";
 import CircularGallery from "./CircularGallery";
+import ProjectRegistrationModal from "./ProjectRegistrationModal";
 
 const projects = [
   {
@@ -31,6 +32,19 @@ const projects = [
 ];
 
 const NewsSection: React.FC = () => {
+  const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleProjectSelect = (project: any) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
+  };
+
   return (
     <section id='news' className='py-16 md:py-24 bg-background'>
       <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
@@ -39,19 +53,28 @@ const NewsSection: React.FC = () => {
             Available Construction Projects
           </h2>
           <p className='mt-4 text-lg text-gray-800'>
-            Join us in building the future. Explore current opportunities.
+            Join us in building the future. Click on a project to register your interest.
           </p>
         </div>
-        <div style={{ height: '600px', position: 'relative' }}>
-          <CircularGallery 
-            items={projects}
-            bend={3} 
-            textColor="#ffffff" 
-            borderRadius={0.05} 
-            scrollEase={0.02}
-          />
+        <div className="relative">
+          <div style={{ height: '600px', position: 'relative' }} className="min-h-[400px] sm:min-h-[500px] md:min-h-[600px]">
+            <CircularGallery 
+              items={projects}
+              bend={3} 
+              textColor="#ffffff" 
+              borderRadius={0.05} 
+              scrollEase={0.02}
+              onSelect={handleProjectSelect}
+            />
+          </div>
         </div>
       </div>
+
+      <ProjectRegistrationModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        project={selectedProject}
+      />
     </section>
   );
 };

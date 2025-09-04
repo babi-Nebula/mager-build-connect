@@ -117,6 +117,7 @@ class Media {
   textColor: string;
   borderRadius: number;
   font: string;
+  onSelect: any;
   program: any;
   plane: any;
   title: any;
@@ -143,7 +144,8 @@ class Media {
     bend,
     textColor,
     borderRadius = 0,
-    font
+    font,
+    onSelect
   }: any) {
     this.extra = 0;
     this.geometry = geometry;
@@ -160,6 +162,7 @@ class Media {
     this.textColor = textColor;
     this.borderRadius = borderRadius;
     this.font = font;
+    this.onSelect = onSelect;
     this.createShader();
     this.createMesh();
     this.createTitle();
@@ -245,6 +248,14 @@ class Media {
       program: this.program
     });
     this.plane.setParent(this.scene);
+    
+    // Add click detection
+    this.plane.userData = { 
+      index: this.index, 
+      text: this.text, 
+      image: this.image,
+      onSelect: this.onSelect 
+    };
   }
   createTitle() {
     this.title = new Title({
@@ -333,11 +344,13 @@ class App {
   isDown: boolean;
   start: number;
   raf: number;
+  onSelect: any;
   boundOnResize: (event: Event) => void;
   boundOnWheel: (event: WheelEvent) => void;
   boundOnTouchDown: (event: MouseEvent | TouchEvent) => void;
   boundOnTouchMove: (event: MouseEvent | TouchEvent) => void;
   boundOnTouchUp: (event: MouseEvent | TouchEvent) => void;
+  boundOnClick: (event: MouseEvent) => void;
 
   constructor(
     container: HTMLElement,
@@ -348,7 +361,8 @@ class App {
       borderRadius = 0,
       font = 'bold 30px Figtree',
       scrollSpeed = 2,
-      scrollEase = 0.05
+      scrollEase = 0.05,
+      onSelect
     }: any = {}
   ) {
     document.documentElement.classList.remove('no-js');
@@ -356,12 +370,13 @@ class App {
     this.scrollSpeed = scrollSpeed;
     this.scroll = { ease: scrollEase, current: 0, target: 0, last: 0 };
     this.onCheckDebounce = debounce(this.onCheck, 200);
+    this.onSelect = onSelect;
     this.createRenderer();
     this.createCamera();
     this.createScene();
     this.onResize();
     this.createGeometry();
-    this.createMedias(items, bend, textColor, borderRadius, font);
+    this.createMedias(items, bend, textColor, borderRadius, font, onSelect);
     this.update();
     this.addEventListeners();
   }
@@ -389,7 +404,7 @@ class App {
       widthSegments: 100
     });
   }
-  createMedias(items: any, bend = 1, textColor: string, borderRadius: number, font: string) {
+  createMedias(items: any, bend = 1, textColor: string, borderRadius: number, font: string, onSelect?: (project: any) => void) {
     const defaultItems = [
       { image: `https://picsum.photos/seed/1/800/600?grayscale`, text: 'Bridge' },
       { image: `https://picsum.photos/seed/2/800/600?grayscale`, text: 'Desk Setup' },
@@ -421,7 +436,8 @@ class App {
         bend,
         textColor,
         borderRadius,
-        font
+        font,
+        onSelect
       });
     });
   }
@@ -439,6 +455,36 @@ class App {
   onTouchUp() {
     this.isDown = false;
     this.onCheck();
+  }
+  
+  onClick(e: MouseEvent) {
+    if (this.isDown) return; // Don't trigger click if dragging
+    
+    // Convert mouse coordinates to normalized device coordinates
+    const rect = this.gl.canvas.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+    const y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+    
+    // Find the media item at the center (closest to x = 0)
+    let closestMedia = null;
+    let minDistance = Infinity;
+    
+    this.medias.forEach(media => {
+      const mediaX = media.plane.position.x;
+      const distance = Math.abs(mediaX);
+      if (distance < minDistance && distance < 2) { // Within reasonable range
+        minDistance = distance;
+        closestMedia = media;
+      }
+    });
+    
+    if (closestMedia && this.onSelect) {
+      this.onSelect({
+        text: closestMedia.text,
+        image: closestMedia.image,
+        index: closestMedia.index
+      });
+    }
   }
   onWheel(e: any) {
     const delta = e.deltaY || e.wheelDelta || e.detail;
@@ -485,11 +531,13 @@ class App {
     this.boundOnTouchDown = this.onTouchDown.bind(this) as (event: MouseEvent | TouchEvent) => void;
     this.boundOnTouchMove = this.onTouchMove.bind(this) as (event: MouseEvent | TouchEvent) => void;
     this.boundOnTouchUp = this.onTouchUp.bind(this) as (event: MouseEvent | TouchEvent) => void;
+    this.boundOnClick = this.onClick.bind(this) as (event: MouseEvent) => void;
     window.addEventListener('resize', this.boundOnResize);
     window.addEventListener('wheel', this.boundOnWheel);
     window.addEventListener('mousedown', this.boundOnTouchDown as EventListener);
     window.addEventListener('mousemove', this.boundOnTouchMove as EventListener);
     window.addEventListener('mouseup', this.boundOnTouchUp as EventListener);
+    window.addEventListener('click', this.boundOnClick as EventListener);
     window.addEventListener('touchstart', this.boundOnTouchDown as EventListener);
     window.addEventListener('touchmove', this.boundOnTouchMove as EventListener);
     window.addEventListener('touchend', this.boundOnTouchUp as EventListener);
@@ -501,6 +549,7 @@ class App {
     window.removeEventListener('mousedown', this.boundOnTouchDown as EventListener);
     window.removeEventListener('mousemove', this.boundOnTouchMove as EventListener);
     window.removeEventListener('mouseup', this.boundOnTouchUp as EventListener);
+    window.removeEventListener('click', this.boundOnClick as EventListener);
     window.removeEventListener('touchstart', this.boundOnTouchDown as EventListener);
     window.removeEventListener('touchmove', this.boundOnTouchMove as EventListener);
     window.removeEventListener('touchend', this.boundOnTouchUp as EventListener);
@@ -518,6 +567,7 @@ interface CircularGalleryProps {
   font?: string;
   scrollSpeed?: number;
   scrollEase?: number;
+  onSelect?: (project: any) => void;
 }
 
 export default function CircularGallery({
@@ -527,15 +577,16 @@ export default function CircularGallery({
   borderRadius = 0.05,
   font = 'bold 30px Figtree',
   scrollSpeed = 2,
-  scrollEase = 0.05
+  scrollEase = 0.05,
+  onSelect
 }: CircularGalleryProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (!containerRef.current) return;
-    const app = new App(containerRef.current, { items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase });
+    const app = new App(containerRef.current, { items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase, onSelect });
     return () => {
       app.destroy();
     };
-  }, [items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase]);
+  }, [items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase, onSelect]);
   return <div className="circular-gallery" ref={containerRef} />;
 }
