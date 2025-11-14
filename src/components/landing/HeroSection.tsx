@@ -39,11 +39,11 @@ const HeroSection: React.FC = () => {
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 flex flex-col items-center">
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight">
           <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary via-pink-500 to-secondary animate-fade-in-up">
-            Building Trust
+           BUILDING TRUST
           </span>
         </h1>
         <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground animate-fade-in-up" style={{animationDelay: '0.2s'}}>
-          Mager Construction is your partner in creating lasting structures with innovation, transparency, and cutting-edge technology.
+         With MAGEር Every Nail, Every Beam, Every Dream Tracked and Trusted.
         </p>
         <div className="mt-10 animate-fade-in-up" style={{animationDelay: '0.4s'}}>
           <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300" asChild>

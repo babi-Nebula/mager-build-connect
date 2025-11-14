@@ -21,7 +21,7 @@ const Header: React.FC = () => {
         <div className="flex h-20 items-center justify-between">
           <a href="#home" className="flex items-center space-x-2 text-2xl font-bold text-primary">
             <Building size={32} />
-            <span>Mager Construction</span>
+            <span>MAGEር CONSTRUCTION</span>
           </a>
           <nav className="hidden md:flex space-x-6 items-center">
             {navItems.map((item) => (
