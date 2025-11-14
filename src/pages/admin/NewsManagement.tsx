@@ -16,53 +16,53 @@ const NewsManagement = () => {
   const [newsArticles] = useState([
     {
       id: 1,
-      title: 'New Residential Complex Project',
-      description: 'Starting construction of a 200-unit residential complex in downtown area.',
+      title: 'New Addis Ababa Housing Project',
+      description: 'Starting construction of a 300-unit residential complex in Bole area.',
       status: 'Published',
-      date: '2024-01-15',
+      date: '2025-02-01',
       image: '/placeholder.svg',
-      timeline: '18 months',
-      views: 1250
+      timeline: '24 months',
+      views: 1350
     },
     {
       id: 2,
-      title: 'Green Building Initiative Launch',
-      description: 'Introducing eco-friendly construction practices and sustainable materials.',
+      title: 'Eco-Friendly Building Initiative',
+      description: 'Introducing sustainable construction materials in Ethiopian projects.',
       status: 'Draft',
-      date: '2024-01-20',
+      date: '2025-02-05',
       image: '/placeholder.svg',
-      timeline: '24 months',
-      views: 890
+      timeline: '18 months',
+      views: 910
     },
     {
       id: 3,
-      title: 'Commercial Office Tower Completion',
-      description: 'Successfully completed 40-story office tower ahead of schedule.',
+      title: 'Commercial Tower Completion',
+      description: 'Completed 25-story office tower ahead of schedule in Mekelle.',
       status: 'Published',
-      date: '2024-01-10',
+      date: '2025-01-20',
       image: '/placeholder.svg',
       timeline: 'Completed',
-      views: 2150
+      views: 2200
     },
     {
       id: 4,
-      title: 'Highway Infrastructure Project',
-      description: 'Major highway expansion project to improve city connectivity.',
+      title: 'Highway Expansion Project',
+      description: 'Major highway expansion connecting Addis Ababa to Debre Berhan.',
       status: 'Published',
-      date: '2024-01-25',
+      date: '2025-01-30',
       image: '/placeholder.svg',
       timeline: '36 months',
-      views: 1680
+      views: 1780
     },
     {
       id: 5,
-      title: 'Smart City Technology Integration',
-      description: 'Implementing IoT and smart technologies in new urban developments.',
+      title: 'Smart City Integration',
+      description: 'Implementing IoT and smart technologies in new Ethiopian urban areas.',
       status: 'Draft',
-      date: '2024-01-30',
+      date: '2025-02-10',
       image: '/placeholder.svg',
       timeline: '12 months',
-      views: 540
+      views: 620
     }
   ]);
 
@@ -131,7 +131,7 @@ const NewsManagement = () => {
             <div className="flex items-center justify-between">
               <div>
                 <h2 className="text-3xl font-bold text-foreground">News Management</h2>
-                <p className="text-muted-foreground">Create and manage construction project news</p>
+                <p className="text-muted-foreground">Create and manage Ethiopian construction project news</p>
               </div>
               <Dialog>
                 <DialogTrigger asChild>
@@ -187,7 +187,7 @@ const NewsManagement = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold text-purple-600">
-                    {newsArticles.reduce((sum, article) => sum + article.views, 0).toLocaleString()}
+                    {newsArticles.reduce((sum, article) => sum + article.views, 0).toLocaleString()} ETB
                   </div>
                 </CardContent>
               </Card>
@@ -196,7 +196,7 @@ const NewsManagement = () => {
             <Card>
               <CardHeader>
                 <CardTitle>All News Articles</CardTitle>
-                <CardDescription>Manage your construction project news and updates</CardDescription>
+                <CardDescription>Manage your Ethiopian construction project news and updates</CardDescription>
               </CardHeader>
               <CardContent>
                 <Table>
@@ -207,7 +207,7 @@ const NewsManagement = () => {
                       <TableHead>Status</TableHead>
                       <TableHead>Date</TableHead>
                       <TableHead>Timeline</TableHead>
-                      <TableHead>Views</TableHead>
+                      <TableHead>Views (ETB)</TableHead>
                       <TableHead>Actions</TableHead>
                     </TableRow>
                   </TableHeader>
@@ -237,7 +237,7 @@ const NewsManagement = () => {
                         <TableCell>
                           <div className="flex items-center gap-1 text-sm">
                             <Eye className="h-3 w-3" />
-                            {article.views.toLocaleString()}
+                            {article.views.toLocaleString()} ETB
                           </div>
                         </TableCell>
                         <TableCell>

@@ -1,3 +1,5 @@
+// --- SAME IMPORTS ---
+
 import React, { useState } from 'react';
 import { SidebarProvider, SidebarInset } from '@/components/ui/sidebar';
 import AdminSidebar from '@/components/admin/AdminSidebar';
@@ -23,20 +25,22 @@ const UserManagement = () => {
     address: ''
   });
 
+  // --- UPDATED CONTRACTORS (ETHIOPIA) ---
   const contractors = [
-    { id: 1, name: 'John Smith', email: 'john@construction.com', company: 'Smith Construction', phone: '+1234567890', status: 'Active', projects: 5 },
-    { id: 2, name: 'Mike Johnson', email: 'mike@builders.com', company: 'Johnson Builders', phone: '+1234567891', status: 'Pending', projects: 2 },
-    { id: 3, name: 'Sarah Davis', email: 'sarah@concrete.com', company: 'Concrete Experts', phone: '+1234567892', status: 'Active', projects: 8 },
-    { id: 4, name: 'Tom Wilson', email: 'tom@roofing.com', company: 'Wilson Roofing', phone: '+1234567893', status: 'Inactive', projects: 0 },
-    { id: 5, name: 'Lisa Brown', email: 'lisa@plumbing.com', company: 'Brown Plumbing', phone: '+1234567894', status: 'Active', projects: 3 },
+    { id: 1, name: 'Abebe Bekele', email: 'abebe@ethioconstruction.et', company: 'Abebe Construction', phone: '+251911223344', status: 'Active', projects: 4 },
+    { id: 2, name: 'Saron Mulugeta', email: 'saron@mulugetabuilders.et', company: 'Mulugeta Builders', phone: '+251922334455', status: 'Pending', projects: 1 },
+    { id: 3, name: 'Yared Tesfaye', email: 'yared@adhisroadworks.et', company: 'Adhis Roadworks', phone: '+251933445566', status: 'Active', projects: 6 },
+    { id: 4, name: 'Hanna Gebru', email: 'hanna@bluehills.et', company: 'Blue Hills Engineering', phone: '+251944556677', status: 'Inactive', projects: 0 },
+    { id: 5, name: 'Mekonnen Tadesse', email: 'mekonnen@habeshabuild.et', company: 'Habesha Build', phone: '+251955667788', status: 'Active', projects: 3 },
   ];
 
+  // --- UPDATED CUSTOMERS (ETHIOPIA) ---
   const customers = [
-    { id: 1, name: 'ABC Corporation', email: 'contact@abc.com', company: 'ABC Corp', phone: '+1987654321', status: 'Active', projects: 2 },
-    { id: 2, name: 'City Council', email: 'mayor@city.gov', company: 'Municipal Government', phone: '+1987654322', status: 'Active', projects: 1 },
-    { id: 3, name: 'Green Valley Inc', email: 'info@greenvalley.com', company: 'Green Valley Inc', phone: '+1987654323', status: 'Active', projects: 1 },
-    { id: 4, name: 'Tech Solutions', email: 'admin@techsol.com', company: 'Tech Solutions Ltd', phone: '+1987654324', status: 'Pending', projects: 0 },
-    { id: 5, name: 'Retail Chain', email: 'ops@retailchain.com', company: 'Retail Chain LLC', phone: '+1987654325', status: 'Active', projects: 3 },
+    { id: 1, name: 'Addis Ababa City Administration', email: 'info@aac.gov.et', company: 'AAC Infrastructure', phone: '+251111234567', status: 'Active', projects: 2 },
+    { id: 2, name: 'Ethiopian Roads Authority', email: 'contact@era.gov.et', company: 'ERA', phone: '+251112345678', status: 'Active', projects: 1 },
+    { id: 3, name: 'Goh Real Estate', email: 'projects@goh.et', company: 'Goh Properties', phone: '+251913334455', status: 'Active', projects: 1 },
+    { id: 4, name: 'Sunshine Investment Group', email: 'admin@sunshine.et', company: 'Sunshine Construction Group', phone: '+251922112233', status: 'Pending', projects: 0 },
+    { id: 5, name: 'Ethiopian Airlines', email: 'hq@ethiopianairlines.et', company: 'EAL Properties', phone: '+251116656667', status: 'Active', projects: 3 },
   ];
 
   const getStatusColor = (status: string) => {
@@ -48,6 +52,7 @@ const UserManagement = () => {
     }
   };
 
+  // --- SAME TABLE COMPONENT ---
   const UserTable = ({ users, type }: { users: any[], type: 'contractor' | 'customer' }) => (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
@@ -66,6 +71,8 @@ const UserManagement = () => {
             Filter
           </Button>
         </div>
+
+        {/* ADD USER MODAL SAME */}
         <Dialog>
           <DialogTrigger asChild>
             <Button className="bg-primary hover:bg-primary/90">
@@ -77,6 +84,7 @@ const UserManagement = () => {
             <DialogHeader>
               <DialogTitle>Add New {type === 'contractor' ? 'Contractor' : 'Customer'}</DialogTitle>
             </DialogHeader>
+
             <div className="space-y-4 py-4">
               <div className="space-y-2">
                 <Label htmlFor="name">Full Name</Label>
@@ -104,6 +112,7 @@ const UserManagement = () => {
               </div>
               <Button className="w-full">Create {type === 'contractor' ? 'Contractor' : 'Customer'}</Button>
             </div>
+
           </DialogContent>
         </Dialog>
       </div>
@@ -121,6 +130,7 @@ const UserManagement = () => {
               <TableHead>Actions</TableHead>
             </TableRow>
           </TableHeader>
+
           <TableBody>
             {users.map((user) => (
               <TableRow key={user.id}>
@@ -129,11 +139,10 @@ const UserManagement = () => {
                 <TableCell>{user.company}</TableCell>
                 <TableCell>{user.phone}</TableCell>
                 <TableCell>
-                  <Badge className={getStatusColor(user.status)}>
-                    {user.status}
-                  </Badge>
+                  <Badge className={getStatusColor(user.status)}> {user.status} </Badge>
                 </TableCell>
                 <TableCell>{user.projects}</TableCell>
+
                 <TableCell>
                   <div className="flex items-center gap-2">
                     <Button variant="outline" size="sm">
@@ -144,6 +153,7 @@ const UserManagement = () => {
                     </Button>
                   </div>
                 </TableCell>
+
               </TableRow>
             ))}
           </TableBody>
@@ -152,15 +162,17 @@ const UserManagement = () => {
     </div>
   );
 
+  // --- DASHBOARD SUMMARY + TABS (UNCHANGED) ---
   return (
     <SidebarProvider>
       <div className="min-h-screen flex w-full bg-background">
         <AdminSidebar />
+
         <SidebarInset className="flex-1">
           <div className="p-6 space-y-6">
             <div>
               <h2 className="text-3xl font-bold text-foreground">User Management</h2>
-              <p className="text-muted-foreground">Manage contractors and customers in your system</p>
+              <p className="text-muted-foreground">Manage contractors and customers in Ethiopia</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -202,15 +214,16 @@ const UserManagement = () => {
                 <TabsTrigger value="contractors">Contractors</TabsTrigger>
                 <TabsTrigger value="customers">Customers</TabsTrigger>
               </TabsList>
-              
+
               <TabsContent value="contractors">
                 <UserTable users={contractors} type="contractor" />
               </TabsContent>
-              
+
               <TabsContent value="customers">
                 <UserTable users={customers} type="customer" />
               </TabsContent>
             </Tabs>
+
           </div>
         </SidebarInset>
       </div>

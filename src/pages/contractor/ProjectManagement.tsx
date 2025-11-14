@@ -249,11 +249,11 @@ const ProjectManagement = () => {
                         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-sm">
                           <div>
                             <div className="text-muted-foreground">Budget</div>
-                            <div className="font-semibold text-foreground">${project.budget.toLocaleString()}</div>
+                            <div className="font-semibold text-foreground">ETB {project.budget.toLocaleString()}</div>
                           </div>
                           <div>
                             <div className="text-muted-foreground">Spent</div>
-                            <div className="font-semibold text-foreground">${project.spent.toLocaleString()}</div>
+                            <div className="font-semibold text-foreground">ETB {project.spent.toLocaleString()}</div>
                           </div>
                           <div>
                             <div className="text-muted-foreground">Start Date</div>

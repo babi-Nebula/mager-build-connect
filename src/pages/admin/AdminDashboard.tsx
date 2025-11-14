@@ -6,10 +6,10 @@ import { Users, Building, FileText, TrendingUp } from 'lucide-react';
 
 const AdminDashboard = () => {
   const stats = [
-    { title: 'Total Contractors', value: '24', icon: Users, change: '+12%' },
-    { title: 'Total Customers', value: '156', icon: Building, change: '+8%' },
-    { title: 'Active Projects', value: '18', icon: FileText, change: '+15%' },
-    { title: 'Revenue This Month', value: '$425K', icon: TrendingUp, change: '+22%' },
+    { title: 'Total Contractors', value: '9', icon: Users, change: '+6%' },
+    { title: 'Total Customers', value: '52', icon: Building, change: '+4%' },
+    { title: 'Active Projects', value: '7', icon: FileText, change: '+10%' },
+    { title: 'Revenue This Month', value: 'ETB 3.2M', icon: TrendingUp, change: '+18%' },
   ];
 
   return (
@@ -20,7 +20,7 @@ const AdminDashboard = () => {
           <div className="p-6 space-y-6">
             <div>
               <h2 className="text-3xl font-bold text-foreground">Welcome Back, Admin</h2>
-              <p className="text-muted-foreground">Here's an overview of your construction business</p>
+              <p className="text-muted-foreground">Overview of your ongoing construction projects in Ethiopia</p>
             </div>
 
             {/* Stats Grid */}
@@ -49,26 +49,28 @@ const AdminDashboard = () => {
                 <CardHeader>
                   <CardTitle className="text-foreground">Recent Contractors</CardTitle>
                   <CardDescription className="text-muted-foreground">
-                    Newly registered contractors
+                    Newly registered contractors in Ethiopia
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     {[
-                      { name: 'John Smith', email: 'john@construction.com', status: 'Active' },
-                      { name: 'Mike Johnson', email: 'mike@builders.com', status: 'Pending' },
-                      { name: 'Sarah Davis', email: 'sarah@concrete.com', status: 'Active' },
+                      { name: 'Abebe Kebede', email: 'abebe@ethioconstruction.com', status: 'Active' },
+                      { name: 'Mekdes Tesfaye', email: 'mekdes@buildeth.com', status: 'Pending' },
+                      { name: 'Yared Mengistu', email: 'yared@habeshabuilders.com', status: 'Active' },
                     ].map((contractor, index) => (
                       <div key={index} className="flex items-center justify-between p-3 rounded-lg bg-muted/20">
                         <div>
                           <p className="font-medium text-foreground">{contractor.name}</p>
                           <p className="text-sm text-muted-foreground">{contractor.email}</p>
                         </div>
-                        <span className={`px-2 py-1 rounded-full text-xs ${
-                          contractor.status === 'Active' 
-                            ? 'bg-secondary/20 text-secondary' 
-                            : 'bg-yellow-500/20 text-yellow-500'
-                        }`}>
+                        <span
+                          className={`px-2 py-1 rounded-full text-xs ${
+                            contractor.status === 'Active'
+                              ? 'bg-secondary/20 text-secondary'
+                              : 'bg-yellow-500/20 text-yellow-500'
+                          }`}
+                        >
                           {contractor.status}
                         </span>
                       </div>
@@ -81,15 +83,15 @@ const AdminDashboard = () => {
                 <CardHeader>
                   <CardTitle className="text-foreground">Recent Customers</CardTitle>
                   <CardDescription className="text-muted-foreground">
-                    New customer registrations
+                    New customer registrations in Ethiopia
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     {[
-                      { name: 'ABC Corporation', project: 'Office Building', value: '$2.5M' },
-                      { name: 'City Council', project: 'Public Library', value: '$1.8M' },
-                      { name: 'Green Valley Inc', project: 'Residential Complex', value: '$3.2M' },
+                      { name: 'Addis Ababa City Administration', project: 'Road Construction Project', value: 'ETB 28M' },
+                      { name: 'Ethiopian Electric Power', project: 'Substation Renovation', value: 'ETB 14M' },
+                      { name: 'Goh Real Estate', project: 'G+4 Apartment Project', value: 'ETB 32M' },
                     ].map((customer, index) => (
                       <div key={index} className="flex items-center justify-between p-3 rounded-lg bg-muted/20">
                         <div>

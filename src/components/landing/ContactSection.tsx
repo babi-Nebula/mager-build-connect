@@ -36,15 +36,13 @@ const ContactSection: React.FC = () => {
           <div className="space-y-6 p-8 bg-slate-800/50 backdrop-blur-lg border border-border rounded-xl shadow-xl animate-fade-in-up" style={{animationDelay: '0.2s'}}>
             <h3 className="text-2xl font-semibold text-foreground">Contact Information</h3>
             <p className="text-muted-foreground">
-              Mager Construction HQ <br />
-              123 BuildWell St, Suite 404 <br />
-              Constructville, CS 56789
+              Mager Co Ethiopoia Dire Dawa
             </p>
             <p className="text-muted-foreground">
               Email: <a href="mailto:info@magerconstruction.com" className="text-primary hover:underline">info@magerconstruction.com</a>
             </p>
             <p className="text-muted-foreground">
-              Phone: <a href="tel:+1234567890" className="text-primary hover:underline">(123) 456-7890</a>
+              Phone: <a href="tel:+251 76315798" className="text-primary hover:underline">(+251) 76315798</a>
             </p>
             <div className="aspect-video bg-muted rounded-lg overflow-hidden">
               <iframe

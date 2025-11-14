@@ -1,4 +1,3 @@
-
 import React from 'react';
 import DashboardLayout from '@/components/dashboard/DashboardLayout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -10,49 +9,49 @@ const ContractorDashboard = () => {
   const phases = [
     {
       id: 1,
-      name: 'Phase 1 - Foundation',
+      name: 'Phase 1 - Foundation (Addis Ababa Housing)',
       year: 'Year 1',
       progress: 85,
-      budget: '$450,000',
-      spent: '$382,500',
+      budget: 'ETB 15,000,000',
+      spent: 'ETB 12,750,000',
       status: 'In Progress',
       timeline: '8 months'
     },
     {
       id: 2,
-      name: 'Phase 2 - Structure',
+      name: 'Phase 2 - Structure (Bole Office Tower)',
       year: 'Year 1-2',
       progress: 45,
-      budget: '$650,000',
-      spent: '$292,500',
+      budget: 'ETB 21,500,000',
+      spent: 'ETB 9,675,000',
       status: 'In Progress',
       timeline: '12 months'
     },
     {
       id: 3,
-      name: 'Phase 3 - Finishing',
+      name: 'Phase 3 - Finishing (Mekelle Commercial Center)',
       year: 'Year 2',
       progress: 0,
-      budget: '$380,000',
-      spent: '$0',
+      budget: 'ETB 12,500,000',
+      spent: 'ETB 0',
       status: 'Pending',
       timeline: '6 months'
     }
   ];
 
   const quickStats = [
-    { title: 'Total Revenue', value: '$1.48M', icon: DollarSign, color: 'text-secondary' },
+    { title: 'Total Revenue', value: 'ETB 49,000,000', icon: DollarSign, color: 'text-secondary' },
     { title: 'Active Employees', value: '32', icon: Users, color: 'text-primary' },
     { title: 'Materials in Stock', value: '156', icon: Package, color: 'text-yellow-500' },
     { title: 'Days to Deadline', value: '45', icon: Clock, color: 'text-red-400' },
   ];
 
   return (
-    <DashboardLayout role="contractor" userName="Contractor Smith">
+    <DashboardLayout role="contractor" userName="Alemayehu Construction">
       <div className="space-y-6">
         <div>
           <h2 className="text-3xl font-bold text-foreground">Project Overview</h2>
-          <p className="text-muted-foreground">Manage your construction phases and track progress</p>
+          <p className="text-muted-foreground">Manage your Ethiopian construction phases and track progress</p>
         </div>
 
         {/* Quick Stats */}
@@ -60,9 +59,7 @@ const ContractorDashboard = () => {
           {quickStats.map((stat) => (
             <Card key={stat.title} className="bg-slate-800/50 backdrop-blur-lg border border-border">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium text-muted-foreground">
-                  {stat.title}
-                </CardTitle>
+                <CardTitle className="text-sm font-medium text-muted-foreground">{stat.title}</CardTitle>
                 <stat.icon className={`h-4 w-4 ${stat.color}`} />
               </CardHeader>
               <CardContent>
@@ -80,7 +77,7 @@ const ContractorDashboard = () => {
               Active Project Phases
             </CardTitle>
             <CardDescription className="text-muted-foreground">
-              Track progress and manage costs for each construction phase
+              Track progress and manage costs for each Ethiopian construction phase
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -143,9 +140,9 @@ const ContractorDashboard = () => {
             <CardContent>
               <div className="space-y-3">
                 {[
-                  { item: 'Concrete Materials', amount: '$12,500', date: '2 days ago' },
-                  { item: 'Equipment Rental', amount: '$8,900', date: '3 days ago' },
-                  { item: 'Labor Costs', amount: '$15,200', date: '5 days ago' },
+                  { item: 'Concrete Materials', amount: 'ETB 625,000', date: '2 days ago' },
+                  { item: 'Equipment Rental', amount: 'ETB 445,000', date: '3 days ago' },
+                  { item: 'Labor Costs', amount: 'ETB 760,000', date: '5 days ago' },
                 ].map((expense, index) => (
                   <div key={index} className="flex justify-between items-center p-3 rounded-lg bg-muted/20">
                     <div>

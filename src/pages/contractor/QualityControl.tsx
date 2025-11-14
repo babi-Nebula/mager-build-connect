@@ -12,81 +12,83 @@ const QualityControl = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTab, setSelectedTab] = useState('inspections');
 
+  // Inspections with Ethiopian context
   const inspections = [
     {
       id: 1,
       type: 'Foundation Inspection',
-      project: 'Downtown Office Complex',
-      inspector: 'John Martinez',
-      date: '2024-01-22',
+      project: 'Addis Ababa Airport Expansion',
+      inspector: 'Abebe Bekele',
+      date: '2025-11-10',
       status: 'Passed',
-      score: 95,
-      issues: 1,
-      nextInspection: '2024-02-05',
+      score: 92,
+      issues: 0,
+      nextInspection: '2025-11-20',
       phase: 'Foundation'
     },
     {
       id: 2,
       type: 'Structural Steel Inspection',
-      project: 'Residential Community Phase 1',
-      inspector: 'David Thompson',
-      date: '2024-01-20',
-      status: 'Failed',
-      score: 72,
-      issues: 5,
-      nextInspection: '2024-01-27',
+      project: 'Bahir Dar Industrial Park',
+      inspector: 'Mekdes Tadesse',
+      date: '2025-11-08',
+      status: 'Conditional',
+      score: 85,
+      issues: 2,
+      nextInspection: '2025-11-15',
       phase: 'Structure'
     },
     {
       id: 3,
       type: 'Electrical Rough-In',
-      project: 'Downtown Office Complex',
-      inspector: 'Robert Wilson',
-      date: '2024-01-18',
-      status: 'Conditional',
-      score: 88,
-      issues: 2,
-      nextInspection: '2024-01-30',
+      project: 'Hawassa Residential Project',
+      inspector: 'Kebede Alemu',
+      date: '2025-11-06',
+      status: 'Failed',
+      score: 70,
+      issues: 4,
+      nextInspection: '2025-11-12',
       phase: 'MEP'
     }
   ];
 
+  // Quality issues with Ethiopian context
   const qualityIssues = [
     {
       id: 1,
       title: 'Concrete Pour - Surface Finish',
-      project: 'Downtown Office Complex',
+      project: 'Addis Ababa Airport Expansion',
       severity: 'Medium',
-      reportedBy: 'Miguel Rodriguez',
-      date: '2024-01-21',
+      reportedBy: 'Yohannes Tesfaye',
+      date: '2025-11-09',
       status: 'Open',
-      description: 'Surface finish does not meet specifications in section B-3',
+      description: 'Surface finish does not meet Ethiopian Standard ES 114',
       assignedTo: 'Quality Team',
-      dueDate: '2024-01-25'
+      dueDate: '2025-11-14'
     },
     {
       id: 2,
       title: 'Rebar Spacing - Non-Compliant',
-      project: 'Residential Community Phase 1',
+      project: 'Bahir Dar Industrial Park',
       severity: 'High',
-      reportedBy: 'John Martinez',
-      date: '2024-01-20',
+      reportedBy: 'Selamawit Desta',
+      date: '2025-11-07',
       status: 'In Progress',
       description: 'Rebar spacing exceeds tolerance in foundation wall section',
       assignedTo: 'Structural Team',
-      dueDate: '2024-01-24'
+      dueDate: '2025-11-13'
     },
     {
       id: 3,
       title: 'Material Delivery - Wrong Grade',
-      project: 'Industrial Warehouse',
+      project: 'Hawassa Residential Project',
       severity: 'Low',
-      reportedBy: 'Sarah Davis',
-      date: '2024-01-19',
+      reportedBy: 'Abiyu Getachew',
+      date: '2025-11-05',
       status: 'Resolved',
-      description: 'Steel delivered was Grade 40 instead of Grade 60',
+      description: 'Delivered steel is Grade 40 instead of Grade 60',
       assignedTo: 'Procurement',
-      dueDate: '2024-01-22'
+      dueDate: '2025-11-08'
     }
   ];
 
@@ -132,7 +134,7 @@ const QualityControl = () => {
   );
 
   return (
-    <DashboardLayout role="contractor" userName="Contractor Smith">
+    <DashboardLayout role="contractor" userName="Engineer Habesha">
       <div className="space-y-6">
         <div className="flex justify-between items-center">
           <div>

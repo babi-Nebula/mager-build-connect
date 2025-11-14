@@ -7,29 +7,29 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
-import { BarChart3, TrendingUp, DollarSign, Calendar, Download, Filter } from 'lucide-react';
+import { TrendingUp, Download } from 'lucide-react';
 
 const Reports = () => {
   const [timeFilter, setTimeFilter] = useState('monthly');
 
   const performanceData = [
-    { name: 'John Smith', company: 'Smith Construction', completed: 5, inProgress: 2, completion: 95, revenue: '$850K' },
-    { name: 'Sarah Davis', company: 'Concrete Experts', completed: 8, inProgress: 1, completion: 98, revenue: '$1.2M' },
-    { name: 'Mike Johnson', company: 'Johnson Builders', completed: 2, inProgress: 3, completion: 78, revenue: '$650K' },
-    { name: 'Lisa Brown', company: 'Brown Plumbing', completed: 3, inProgress: 1, completion: 88, revenue: '$420K' },
-    { name: 'Tom Wilson', company: 'Wilson Roofing', completed: 0, inProgress: 1, completion: 45, revenue: '$180K' },
+    { name: 'Bereket Hailemariam', company: 'EthioBuild Contractors', completed: 7, inProgress: 1, completion: 96, revenue: 'Br 1.3M' },
+    { name: 'Eden Mulugeta', company: 'Addis Concrete Works', completed: 5, inProgress: 2, completion: 92, revenue: 'Br 980K' },
+    { name: 'Dawit Alemu', company: 'Abay General Construction', completed: 4, inProgress: 3, completion: 81, revenue: 'Br 720K' },
+    { name: 'Mihret Tadesse', company: 'Blue Nile Plumbing', completed: 3, inProgress: 1, completion: 87, revenue: 'Br 430K' },
+    { name: 'Samuel Tesfaye', company: 'Hawassa Roofing & Works', completed: 1, inProgress: 2, completion: 54, revenue: 'Br 190K' }
   ];
 
   const financialData = [
-    { month: 'January', revenue: 425000, expenses: 320000, profit: 105000 },
-    { month: 'February', revenue: 380000, expenses: 285000, profit: 95000 },
-    { month: 'March', revenue: 520000, expenses: 390000, profit: 130000 },
-    { month: 'April', revenue: 465000, expenses: 350000, profit: 115000 },
-    { month: 'May', revenue: 580000, expenses: 435000, profit: 145000 },
-    { month: 'June', revenue: 610000, expenses: 460000, profit: 150000 },
+    { month: 'Meskerem', revenue: 4800000, expenses: 3550000, profit: 1250000 },
+    { month: 'Tikimt', revenue: 5200000, expenses: 3900000, profit: 1300000 },
+    { month: 'Hidar', revenue: 6100000, expenses: 4300000, profit: 1800000 },
+    { month: 'Tahsas', revenue: 5700000, expenses: 4100000, profit: 1600000 },
+    { month: 'Tir', revenue: 6300000, expenses: 4500000, profit: 1800000 },
+    { month: 'Yekatit', revenue: 6500000, expenses: 4800000, profit: 1700000 }
   ];
 
-  const getCompletionColor = (completion: number) => {
+  const getCompletionColor = (completion) => {
     if (completion >= 90) return 'text-green-600';
     if (completion >= 75) return 'text-yellow-600';
     return 'text-red-600';
@@ -44,7 +44,7 @@ const Reports = () => {
             <div className="flex items-center justify-between">
               <div>
                 <h2 className="text-3xl font-bold text-foreground">Reports & Analytics</h2>
-                <p className="text-muted-foreground">Track performance and financial metrics</p>
+                <p className="text-muted-foreground">Ethiopian localized construction performance & financial reports</p>
               </div>
               <div className="flex items-center gap-4">
                 <Select value={timeFilter} onValueChange={setTimeFilter}>
@@ -71,7 +71,7 @@ const Reports = () => {
                   <CardTitle className="text-sm font-medium text-blue-600">Total Revenue</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-2xl font-bold text-blue-600">$2.98M</div>
+                  <div className="text-2xl font-bold text-blue-600">Br 18.4M</div>
                   <div className="flex items-center gap-1 text-xs text-muted-foreground">
                     <TrendingUp className="h-3 w-3 text-green-500" />
                     <span>+12.5% from last period</span>
@@ -84,7 +84,7 @@ const Reports = () => {
                   <CardTitle className="text-sm font-medium text-green-600">Total Profit</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-2xl font-bold text-green-600">$740K</div>
+                  <div className="text-2xl font-bold text-green-600">Br 5.7M</div>
                   <div className="flex items-center gap-1 text-xs text-muted-foreground">
                     <TrendingUp className="h-3 w-3 text-green-500" />
                     <span>+8.3% from last period</span>
@@ -97,7 +97,7 @@ const Reports = () => {
                   <CardTitle className="text-sm font-medium text-purple-600">Projects Completed</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-2xl font-bold text-purple-600">18</div>
+                  <div className="text-2xl font-bold text-purple-600">26</div>
                   <div className="flex items-center gap-1 text-xs text-muted-foreground">
                     <TrendingUp className="h-3 w-3 text-green-500" />
                     <span>+15% from last period</span>
@@ -110,7 +110,7 @@ const Reports = () => {
                   <CardTitle className="text-sm font-medium text-orange-600">Avg Completion Rate</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-2xl font-bold text-orange-600">87%</div>
+                  <div className="text-2xl font-bold text-orange-600">89%</div>
                   <div className="flex items-center gap-1 text-xs text-muted-foreground">
                     <TrendingUp className="h-3 w-3 text-green-500" />
                     <span>+5.2% from last period</span>
@@ -130,7 +130,7 @@ const Reports = () => {
                 <Card>
                   <CardHeader>
                     <CardTitle>Contractor Performance Overview</CardTitle>
-                    <CardDescription>Track completion rates and revenue generated by contractors</CardDescription>
+                    <CardDescription>Performance of Ethiopian contractors</CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     {performanceData.map((contractor, index) => (
@@ -149,9 +149,7 @@ const Reports = () => {
                             <div className="text-muted-foreground">In Progress</div>
                           </div>
                           <div className="text-center">
-                            <div className={`font-semibold ${getCompletionColor(contractor.completion)}`}>
-                              {contractor.completion}%
-                            </div>
+                            <div className={`font-semibold ${getCompletionColor(contractor.completion)}`}>{contractor.completion}%</div>
                             <div className="text-muted-foreground">Completion</div>
                           </div>
                           <div className="text-center">
@@ -173,7 +171,7 @@ const Reports = () => {
                   <Card>
                     <CardHeader>
                       <CardTitle>Monthly Financial Overview</CardTitle>
-                      <CardDescription>Revenue, expenses, and profit trends</CardDescription>
+                      <CardDescription>Ethiopian ETB Financial Data</CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-4">
                       {financialData.map((month, index) => (
@@ -181,21 +179,15 @@ const Reports = () => {
                           <div className="font-medium">{month.month}</div>
                           <div className="flex items-center gap-4 text-sm">
                             <div className="text-center">
-                              <div className="font-semibold text-blue-600">
-                                ${(month.revenue / 1000).toFixed(0)}K
-                              </div>
+                              <div className="font-semibold text-blue-600">Br {(month.revenue / 1000).toFixed(0)}K</div>
                               <div className="text-muted-foreground">Revenue</div>
                             </div>
                             <div className="text-center">
-                              <div className="font-semibold text-red-600">
-                                ${(month.expenses / 1000).toFixed(0)}K
-                              </div>
+                              <div className="font-semibold text-red-600">Br {(month.expenses / 1000).toFixed(0)}K</div>
                               <div className="text-muted-foreground">Expenses</div>
                             </div>
                             <div className="text-center">
-                              <div className="font-semibold text-green-600">
-                                ${(month.profit / 1000).toFixed(0)}K
-                              </div>
+                              <div className="font-semibold text-green-600">Br {(month.profit / 1000).toFixed(0)}K</div>
                               <div className="text-muted-foreground">Profit</div>
                             </div>
                           </div>
@@ -207,7 +199,6 @@ const Reports = () => {
                   <Card>
                     <CardHeader>
                       <CardTitle>Key Financial Metrics</CardTitle>
-                      <CardDescription>Important financial indicators</CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-6">
                       <div className="space-y-2">
@@ -252,19 +243,19 @@ const Reports = () => {
                     <CardContent className="space-y-4">
                       <div className="flex justify-between items-center">
                         <span>Completed</span>
-                        <Badge className="bg-green-500/20 text-green-600">18</Badge>
+                        <Badge className="bg-green-500/20 text-green-600">26</Badge>
                       </div>
                       <div className="flex justify-between items-center">
                         <span>In Progress</span>
-                        <Badge className="bg-blue-500/20 text-blue-600">12</Badge>
+                        <Badge className="bg-blue-500/20 text-blue-600">14</Badge>
                       </div>
                       <div className="flex justify-between items-center">
                         <span>Planning</span>
-                        <Badge className="bg-yellow-500/20 text-yellow-600">5</Badge>
+                        <Badge className="bg-yellow-500/20 text-yellow-600">6</Badge>
                       </div>
                       <div className="flex justify-between items-center">
                         <span>On Hold</span>
-                        <Badge className="bg-red-500/20 text-red-600">2</Badge>
+                        <Badge className="bg-red-500/20 text-red-600">3</Badge>
                       </div>
                     </CardContent>
                   </Card>
@@ -276,19 +267,19 @@ const Reports = () => {
                     <CardContent className="space-y-4">
                       <div className="flex justify-between items-center">
                         <span>Residential</span>
-                        <Badge variant="outline">45%</Badge>
+                        <Badge variant="outline">48%</Badge>
                       </div>
                       <div className="flex justify-between items-center">
                         <span>Commercial</span>
-                        <Badge variant="outline">30%</Badge>
+                        <Badge variant="outline">32%</Badge>
                       </div>
                       <div className="flex justify-between items-center">
                         <span>Industrial</span>
-                        <Badge variant="outline">15%</Badge>
+                        <Badge variant="outline">12%</Badge>
                       </div>
                       <div className="flex justify-between items-center">
                         <span>Government</span>
-                        <Badge variant="outline">10%</Badge>
+                        <Badge variant="outline">8%</Badge>
                       </div>
                     </CardContent>
                   </Card>
@@ -301,16 +292,16 @@ const Reports = () => {
                       <div className="space-y-2">
                         <div className="flex justify-between text-sm">
                           <span>On Time</span>
-                          <span className="text-green-600">78%</span>
+                          <span className="text-green-600">82%</span>
                         </div>
-                        <Progress value={78} className="h-2" />
+                        <Progress value={82} className="h-2" />
                       </div>
                       <div className="space-y-2">
                         <div className="flex justify-between text-sm">
                           <span>Delayed</span>
-                          <span className="text-yellow-600">15%</span>
+                          <span className="text-yellow-600">11%</span>
                         </div>
-                        <Progress value={15} className="h-2" />
+                        <Progress value={11} className="h-2" />
                       </div>
                       <div className="space-y-2">
                         <div className="flex justify-between text-sm">

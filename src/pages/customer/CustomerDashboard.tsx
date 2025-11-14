@@ -1,4 +1,3 @@
-
 import React from 'react';
 import DashboardLayout from '@/components/dashboard/DashboardLayout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -7,44 +6,44 @@ import { Progress } from '@/components/ui/progress';
 
 const CustomerDashboard = () => {
   const projectInfo = {
-    name: 'Corporate Headquarters Building',
-    contractor: 'Smith Construction Co.',
+    name: 'Addis Ababa Corporate Tower',
+    contractor: 'Habesha Construction PLC',
     startDate: 'January 15, 2024',
     expectedCompletion: 'December 2025',
-    totalBudget: '$4.2M',
+    totalBudget: 'ETB 42,000,000',
     overallProgress: 65
   };
 
   const phases = [
-    { name: 'Foundation & Site Prep', progress: 100, status: 'Completed', budget: '$450K' },
-    { name: 'Structure & Framework', progress: 85, status: 'In Progress', budget: '$650K' },
-    { name: 'Electrical & Plumbing', progress: 45, status: 'In Progress', budget: '$380K' },
-    { name: 'Interior Finishing', progress: 0, status: 'Pending', budget: '$320K' },
+    { name: 'Foundation & Site Prep', progress: 100, status: 'Completed', budget: 'ETB 4,500,000' },
+    { name: 'Structure & Framework', progress: 85, status: 'In Progress', budget: 'ETB 6,500,000' },
+    { name: 'Electrical & Plumbing', progress: 45, status: 'In Progress', budget: 'ETB 3,800,000' },
+    { name: 'Interior Finishing', progress: 0, status: 'Pending', budget: 'ETB 3,200,000' },
   ];
 
   const recentUpdates = [
     {
-      title: 'Structural Steel Installation Complete',
-      description: 'All steel framework has been installed and inspected.',
+      title: 'Steel Framework Installation Complete',
+      description: 'All structural steel has been installed and inspected.',
       date: '2 days ago',
       type: 'success'
     },
     {
-      title: 'Weather Delay Notice',
-      description: 'Concrete pouring delayed due to rain forecast.',
+      title: 'Rain Delay Notice',
+      description: 'Concrete pouring delayed due to heavy rain.',
       date: '3 days ago',
       type: 'warning'
     },
     {
-      title: 'Milestone Payment Due',
-      description: 'Phase 2 milestone payment of $200K is due.',
+      title: 'Phase 2 Payment Due',
+      description: 'ETB 2,000,000 milestone payment for Phase 2 is due.',
       date: '1 week ago',
       type: 'info'
     }
   ];
 
   return (
-    <DashboardLayout role="customer" userName="ABC Corporation">
+    <DashboardLayout role="customer" userName="EthioCorp Ltd.">
       <div className="space-y-6">
         <div>
           <h2 className="text-3xl font-bold text-foreground">Project Dashboard</h2>

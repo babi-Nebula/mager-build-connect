@@ -16,7 +16,7 @@ interface StatDataItem {
 }
 
 const statsData: StatDataItem[] = [
-  { valueStr: "500+", valueNum: 500, suffix: "+", label: "Projects Completed", icon: <CheckCircle className="w-8 h-8 text-primary" /> },
+  { valueStr: "10+", valueNum: 10, suffix: "+", label: "Projects planned to start in this year", icon: <CheckCircle className="w-8 h-8 text-primary" /> },
   { valueStr: "98%", valueNum: 98, suffix: "%", label: "Client Satisfaction", icon: <Users className="w-8 h-8 text-primary" /> },
   { valueStr: "24/7", label: "Support Available", icon: <Clock className="w-8 h-8 text-primary" /> }, // This will remain static, no valueNum or suffix needed for animation
 ];

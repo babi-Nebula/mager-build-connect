@@ -44,11 +44,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ imageSrc, title, location, bu
         </div>
         <div className="mt-auto">
           <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-            <DialogTrigger asChild>
-              <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-                Apply as Contractor
-              </Button>
-            </DialogTrigger>
+            
             <DialogContent className="sm:max-w-[525px] bg-slate-900 border-slate-700">
               <DialogHeader>
                 <DialogTitle className="text-2xl text-white">Apply for: {title}</DialogTitle>

@@ -79,15 +79,15 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-semibold text-foreground mb-4">Connect With Us</h3>
             <div className="space-y-3 text-sm">
-              <a href="tel:+15551234567" className="flex items-center hover:text-primary transition-colors">
-                <Phone size={16} className="mr-2 flex-shrink-0" /> (555) 123-4567
+              <a href="tel:+25176315798" className="flex items-center hover:text-primary transition-colors">
+                <Phone size={16} className="mr-2 flex-shrink-0" /> (+251) 76315798
               </a>
               <a href="mailto:info@magerconstruction.com" className="flex items-center hover:text-primary transition-colors">
                 <Mail size={16} className="mr-2 flex-shrink-0" /> info@magerconstruction.com
               </a>
               <p className="flex items-start">
                 <MapPin size={16} className="mr-2 mt-1 flex-shrink-0" />
-                <span>Seattle, WA <br/>(Specific address can go here)</span>
+                <span>Sabian,  <br/>Dire Dawa Ethiopia</span>
               </p>
             </div>
             <div className="flex space-x-3 mt-4">

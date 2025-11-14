@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import DashboardLayout from '@/components/dashboard/DashboardLayout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -12,6 +11,7 @@ import { CreditCard, DollarSign, Calendar, Download, AlertCircle, CheckCircle } 
 const PaymentsBilling = () => {
   const [selectedTab, setSelectedTab] = useState('overview');
 
+  // Sample invoices
   const invoices = [
     {
       id: 'INV-2024-001',
@@ -42,6 +42,7 @@ const PaymentsBilling = () => {
     }
   ];
 
+  // Helper to get badge color based on status
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'Paid': return 'bg-green-500/20 text-green-400';
@@ -49,6 +50,15 @@ const PaymentsBilling = () => {
       case 'Overdue': return 'bg-red-500/20 text-red-400';
       default: return 'bg-gray-500/20 text-gray-400';
     }
+  };
+
+  // Format currency as Ethiopian Birr
+  const formatCurrency = (amount: number) => {
+    return new Intl.NumberFormat('en-ET', {
+      style: 'currency',
+      currency: 'ETB',
+      minimumFractionDigits: 0
+    }).format(amount);
   };
 
   return (
@@ -73,7 +83,7 @@ const PaymentsBilling = () => {
               <DollarSign className="h-4 w-4 text-primary" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-foreground">$485,000</div>
+              <div className="text-2xl font-bold text-foreground">{formatCurrency(485000)}</div>
               <p className="text-xs text-muted-foreground">Contract value</p>
             </CardContent>
           </Card>
@@ -83,7 +93,7 @@ const PaymentsBilling = () => {
               <CheckCircle className="h-4 w-4 text-green-400" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-foreground">$105,500</div>
+              <div className="text-2xl font-bold text-foreground">{formatCurrency(105500)}</div>
               <p className="text-xs text-muted-foreground">21.8% of total</p>
             </CardContent>
           </Card>
@@ -93,7 +103,7 @@ const PaymentsBilling = () => {
               <AlertCircle className="h-4 w-4 text-yellow-500" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-foreground">$60,500</div>
+              <div className="text-2xl font-bold text-foreground">{formatCurrency(60500)}</div>
               <p className="text-xs text-muted-foreground">Due this month</p>
             </CardContent>
           </Card>
@@ -104,7 +114,7 @@ const PaymentsBilling = () => {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-foreground">Feb 5</div>
-              <p className="text-xs text-muted-foreground">$38,500 due</p>
+              <p className="text-xs text-muted-foreground">{formatCurrency(38500)} due</p>
             </CardContent>
           </Card>
         </div>
@@ -135,7 +145,7 @@ const PaymentsBilling = () => {
                           </div>
                           <div className="text-right">
                             <div className="text-2xl font-bold text-foreground">
-                              ${invoice.amount.toLocaleString()}
+                              {formatCurrency(invoice.amount)}
                             </div>
                             <Badge className={getStatusColor(invoice.status)}>
                               {invoice.status}

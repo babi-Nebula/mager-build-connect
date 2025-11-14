@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import DashboardLayout from '@/components/dashboard/DashboardLayout';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -16,15 +16,15 @@ const RawMaterials = () => {
   const materials = [
     {
       id: 1,
-      name: 'Portland Cement',
+      name: 'Habesha Portland Cement',
       category: 'Concrete',
-      supplier: 'CementCorp Ltd',
+      supplier: 'Habesha Cement PLC',
       currentStock: 450,
       minStock: 200,
       maxStock: 800,
       unit: 'bags',
-      unitPrice: 12.50,
-      totalValue: 5625,
+      unitPrice: 600,
+      totalValue: 270000,
       lastOrdered: '2024-01-15',
       status: 'In Stock',
       location: 'Warehouse A-1'
@@ -33,13 +33,13 @@ const RawMaterials = () => {
       id: 2,
       name: 'Rebar #4',
       category: 'Steel',
-      supplier: 'Steel Solutions Inc',
+      supplier: 'Metal & Engineering PLC',
       currentStock: 85,
       minStock: 100,
       maxStock: 500,
       unit: 'pieces',
-      unitPrice: 25.00,
-      totalValue: 2125,
+      unitPrice: 1200,
+      totalValue: 102000,
       lastOrdered: '2024-01-10',
       status: 'Low Stock',
       location: 'Yard B-2'
@@ -48,13 +48,13 @@ const RawMaterials = () => {
       id: 3,
       name: 'Concrete Blocks',
       category: 'Masonry',
-      supplier: 'Block Masters',
+      supplier: 'Ethiopian Block Factory',
       currentStock: 1200,
       minStock: 500,
       maxStock: 2000,
       unit: 'pieces',
-      unitPrice: 3.75,
-      totalValue: 4500,
+      unitPrice: 50,
+      totalValue: 60000,
       lastOrdered: '2024-01-12',
       status: 'In Stock',
       location: 'Yard C-1'
@@ -63,13 +63,13 @@ const RawMaterials = () => {
       id: 4,
       name: 'Aggregate Sand',
       category: 'Aggregate',
-      supplier: 'Sandy Supplies',
+      supplier: 'Addis Sand Suppliers',
       currentStock: 15,
       minStock: 20,
       maxStock: 100,
       unit: 'tons',
-      unitPrice: 45.00,
-      totalValue: 675,
+      unitPrice: 3000,
+      totalValue: 45000,
       lastOrdered: '2024-01-08',
       status: 'Critical',
       location: 'Stockpile A'
@@ -80,21 +80,21 @@ const RawMaterials = () => {
     {
       id: 1,
       orderNumber: 'PO-2024-001',
-      supplier: 'CementCorp Ltd',
-      items: 'Portland Cement (200 bags)',
+      supplier: 'Habesha Cement PLC',
+      items: 'Habesha Portland Cement (200 bags)',
       orderDate: '2024-01-20',
       expectedDelivery: '2024-01-25',
-      totalAmount: 2500,
+      totalAmount: 120000,
       status: 'Pending'
     },
     {
       id: 2,
       orderNumber: 'PO-2024-002',
-      supplier: 'Steel Solutions Inc',
+      supplier: 'Metal & Engineering PLC',
       items: 'Rebar #4 (150 pieces)',
       orderDate: '2024-01-18',
       expectedDelivery: '2024-01-23',
-      totalAmount: 3750,
+      totalAmount: 180000,
       status: 'Shipped'
     }
   ];
@@ -119,9 +119,7 @@ const RawMaterials = () => {
     }
   };
 
-  const getStockPercentage = (current: number, max: number) => {
-    return (current / max) * 100;
-  };
+  const getStockPercentage = (current: number, max: number) => (current / max) * 100;
 
   const filteredMaterials = materials.filter(material =>
     material.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -157,7 +155,7 @@ const RawMaterials = () => {
               <Package className="h-4 w-4 text-primary" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-foreground">156</div>
+              <div className="text-2xl font-bold text-foreground">{materials.length}</div>
             </CardContent>
           </Card>
           <Card className="bg-slate-800/50 backdrop-blur-lg border border-border">
@@ -166,7 +164,9 @@ const RawMaterials = () => {
               <TrendingDown className="h-4 w-4 text-yellow-500" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-foreground">12</div>
+              <div className="text-2xl font-bold text-foreground">
+                {materials.filter(m => m.status === 'Low Stock').length}
+              </div>
             </CardContent>
           </Card>
           <Card className="bg-slate-800/50 backdrop-blur-lg border border-border">
@@ -175,7 +175,9 @@ const RawMaterials = () => {
               <AlertTriangle className="h-4 w-4 text-red-400" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-foreground">3</div>
+              <div className="text-2xl font-bold text-foreground">
+                {materials.filter(m => m.status === 'Critical').length}
+              </div>
             </CardContent>
           </Card>
           <Card className="bg-slate-800/50 backdrop-blur-lg border border-border">
@@ -184,7 +186,9 @@ const RawMaterials = () => {
               <Package className="h-4 w-4 text-secondary" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-foreground">$125,450</div>
+              <div className="text-2xl font-bold text-foreground">
+                ETB {materials.reduce((sum, m) => sum + m.totalValue, 0).toLocaleString()}
+              </div>
             </CardContent>
           </Card>
         </div>
@@ -251,8 +255,8 @@ const RawMaterials = () => {
                           </div>
                         </TableCell>
                         <TableCell>{material.location}</TableCell>
-                        <TableCell>${material.unitPrice}</TableCell>
-                        <TableCell>${material.totalValue.toLocaleString()}</TableCell>
+                        <TableCell>ETB {material.unitPrice.toLocaleString()}</TableCell>
+                        <TableCell>ETB {material.totalValue.toLocaleString()}</TableCell>
                         <TableCell>
                           <Badge className={getStatusColor(material.status)}>
                             {material.status}
@@ -292,7 +296,7 @@ const RawMaterials = () => {
                         <TableCell>{order.items}</TableCell>
                         <TableCell>{order.orderDate}</TableCell>
                         <TableCell>{order.expectedDelivery}</TableCell>
-                        <TableCell>${order.totalAmount.toLocaleString()}</TableCell>
+                        <TableCell>ETB {order.totalAmount.toLocaleString()}</TableCell>
                         <TableCell>
                           <Badge className={getOrderStatusColor(order.status)}>
                             {order.status}

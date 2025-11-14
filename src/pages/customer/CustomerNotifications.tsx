@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
 import DashboardLayout from '@/components/dashboard/DashboardLayout';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
@@ -14,7 +13,8 @@ const CustomerNotifications = () => {
   const [selectedTab, setSelectedTab] = useState('all');
   const [filterType, setFilterType] = useState('all');
 
-  const notifications = [
+  // State for notifications so we can update read status
+  const [notifications, setNotifications] = useState([
     {
       id: 1,
       type: 'progress',
@@ -111,7 +111,7 @@ const CustomerNotifications = () => {
       category: 'Logistics',
       project: 'Corporate Headquarters Building'
     }
-  ];
+  ]);
 
   const getNotificationIcon = (type: string) => {
     switch (type) {
@@ -136,25 +136,37 @@ const CustomerNotifications = () => {
     }
   };
 
+  // Filtered notifications based on search, tab, and type
   const filteredNotifications = notifications.filter(notification => {
     const matchesSearch = notification.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         notification.message.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         notification.category.toLowerCase().includes(searchTerm.toLowerCase());
-    
-    const matchesTab = selectedTab === 'all' || 
-                      (selectedTab === 'unread' && !notification.read) ||
-                      (selectedTab === 'read' && notification.read);
-    
+      notification.message.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      notification.category.toLowerCase().includes(searchTerm.toLowerCase());
+
+    const matchesTab = selectedTab === 'all' ||
+      (selectedTab === 'unread' && !notification.read) ||
+      (selectedTab === 'read' && notification.read);
+
     const matchesType = filterType === 'all' || notification.type === filterType;
-    
+
     return matchesSearch && matchesTab && matchesType;
   });
 
   const unreadCount = notifications.filter(n => !n.read).length;
 
+  // Mark a single notification as read
+  const markAsRead = (id: number) => {
+    setNotifications(notifications.map(n => n.id === id ? { ...n, read: true } : n));
+  };
+
+  // Mark all notifications as read
+  const markAllRead = () => {
+    setNotifications(notifications.map(n => ({ ...n, read: true })));
+  };
+
   return (
     <DashboardLayout role="customer" userName="ABC Corporation">
       <div className="space-y-6">
+        {/* Header */}
         <div className="flex justify-between items-center">
           <div>
             <h2 className="text-3xl font-bold text-foreground">Notifications</h2>
@@ -165,13 +177,13 @@ const CustomerNotifications = () => {
               <Settings className="h-4 w-4 mr-2" />
               Settings
             </Button>
-            <Button>
+            <Button onClick={markAllRead}>
               Mark All Read
             </Button>
           </div>
         </div>
 
-        {/* Notification Summary */}
+        {/* Summary Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           <Card className="bg-slate-800/50 backdrop-blur-lg border border-border">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -248,7 +260,7 @@ const CustomerNotifications = () => {
           </div>
         </div>
 
-        {/* Notifications */}
+        {/* Notifications List */}
         <Card className="bg-slate-800/50 backdrop-blur-lg border border-border">
           <Tabs value={selectedTab} onValueChange={setSelectedTab}>
             <CardHeader>
@@ -267,9 +279,12 @@ const CustomerNotifications = () => {
                   </div>
                 ) : (
                   filteredNotifications.map((notification) => (
-                    <Card key={notification.id} className={`bg-muted/20 border border-border transition-all hover:bg-muted/30 ${
-                      !notification.read ? 'border-l-4 border-l-primary' : ''
-                    }`}>
+                    <Card
+                      key={notification.id}
+                      className={`bg-muted/20 border border-border transition-all hover:bg-muted/30 ${
+                        !notification.read ? 'border-l-4 border-l-primary' : ''
+                      }`}
+                    >
                       <CardHeader>
                         <div className="flex items-start space-x-4">
                           <div className="flex-shrink-0">
@@ -306,7 +321,7 @@ const CustomerNotifications = () => {
                             </div>
                             <div className="flex justify-end space-x-2">
                               {!notification.read && (
-                                <Button variant="outline" size="sm">
+                                <Button variant="outline" size="sm" onClick={() => markAsRead(notification.id)}>
                                   Mark as Read
                                 </Button>
                               )}

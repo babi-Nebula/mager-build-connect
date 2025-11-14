@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import DashboardLayout from '@/components/dashboard/DashboardLayout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -16,52 +15,52 @@ const EmployeeManagement = () => {
   const employees = [
     {
       id: 1,
-      name: 'John Martinez',
+      name: 'Abebe Bekele',
       role: 'Site Foreman',
       trade: 'General Construction',
-      phone: '+1 (555) 123-4567',
+      phone: '+251 911 123 456',
       status: 'Active',
       project: 'Phase 1 - Foundation',
-      payRate: '$28/hour',
+      payRate: 'ETB 700/hour',
       hoursWeek: 45,
       certifications: ['OSHA 30', 'First Aid'],
       hireDate: '2023-01-15'
     },
     {
       id: 2,
-      name: 'Miguel Rodriguez',
+      name: 'Mekdes Tadesse',
       role: 'Concrete Specialist',
       trade: 'Concrete Work',
-      phone: '+1 (555) 234-5678',
+      phone: '+251 911 234 567',
       status: 'Active',
       project: 'Phase 1 - Foundation',
-      payRate: '$25/hour',
+      payRate: 'ETB 650/hour',
       hoursWeek: 40,
       certifications: ['Concrete Certification'],
       hireDate: '2023-02-01'
     },
     {
       id: 3,
-      name: 'David Thompson',
+      name: 'Kebede Alemu',
       role: 'Equipment Operator',
       trade: 'Heavy Equipment',
-      phone: '+1 (555) 345-6789',
+      phone: '+251 911 345 678',
       status: 'On Leave',
       project: 'Phase 2 - Structure',
-      payRate: '$30/hour',
+      payRate: 'ETB 750/hour',
       hoursWeek: 0,
       certifications: ['CDL', 'Crane Operator'],
       hireDate: '2022-11-10'
     },
     {
       id: 4,
-      name: 'Robert Wilson',
+      name: 'Lily Endeshaw',
       role: 'Electrician',
       trade: 'Electrical',
-      phone: '+1 (555) 456-7890',
+      phone: '+251 911 456 789',
       status: 'Active',
       project: 'Phase 2 - Structure',
-      payRate: '$32/hour',
+      payRate: 'ETB 800/hour',
       hoursWeek: 42,
       certifications: ['Licensed Electrician', 'OSHA 10'],
       hireDate: '2023-03-20'
@@ -79,8 +78,8 @@ const EmployeeManagement = () => {
 
   const filteredEmployees = employees.filter(employee => {
     const matchesSearch = employee.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         employee.role.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         employee.trade.toLowerCase().includes(searchTerm.toLowerCase());
+                          employee.role.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                          employee.trade.toLowerCase().includes(searchTerm.toLowerCase());
     
     if (selectedTab === 'all') return matchesSearch;
     return matchesSearch && employee.status.toLowerCase() === selectedTab;
@@ -108,7 +107,7 @@ const EmployeeManagement = () => {
               <Users className="h-4 w-4 text-primary" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-foreground">32</div>
+              <div className="text-2xl font-bold text-foreground">{employees.length}</div>
             </CardContent>
           </Card>
           <Card className="bg-slate-800/50 backdrop-blur-lg border border-border">
@@ -117,7 +116,9 @@ const EmployeeManagement = () => {
               <UserCheck className="h-4 w-4 text-secondary" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-foreground">28</div>
+              <div className="text-2xl font-bold text-foreground">
+                {employees.filter(e => e.status === 'Active').length}
+              </div>
             </CardContent>
           </Card>
           <Card className="bg-slate-800/50 backdrop-blur-lg border border-border">
@@ -126,7 +127,9 @@ const EmployeeManagement = () => {
               <Clock className="h-4 w-4 text-yellow-500" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-foreground">1,280</div>
+              <div className="text-2xl font-bold text-foreground">
+                {employees.reduce((sum, e) => sum + e.hoursWeek, 0)}
+              </div>
             </CardContent>
           </Card>
           <Card className="bg-slate-800/50 backdrop-blur-lg border border-border">
