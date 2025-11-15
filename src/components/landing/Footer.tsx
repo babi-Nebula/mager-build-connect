@@ -1,12 +1,13 @@
 
 import React from 'react';
 import { Linkedin, Facebook, Instagram, Building, Mail, Phone, MapPin } from 'lucide-react';
+import footerImage from '@/assets/footer-construction.jpg';
 
 const quickLinks = [
   { name: 'Home', href: '#home' },
   { name: 'About', href: '#about' },
   { name: 'Services', href: '#services' },
-  { name: 'Projects', href: '#news' }, // Changed from 'News' to 'Projects' to match image
+  { name: 'Projects', href: '#news' },
   { name: 'Contact', href: '#contact' },
 ];
 
@@ -22,7 +23,6 @@ const socialLinks = [
   { name: 'Facebook', icon: <Facebook size={20} />, href: '#' },
   { name: 'Instagram', icon: <Instagram size={20} />, href: '#' },
   { name: 'LinkedIn', icon: <Linkedin size={20} />, href: '#' },
-  // { name: 'Twitter', icon: <Twitter size={20} />, href: '#' }, // Example if Twitter is needed
 ];
 
 const legalLinks = [
@@ -33,8 +33,16 @@ const legalLinks = [
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-slate-900 border-t border-border text-muted-foreground">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <footer className="relative bg-slate-900 border-t border-border text-muted-foreground overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url('${footerImage}')` }}
+      >
+        <div className="absolute inset-0 bg-slate-900/85"></div>
+      </div>
+      
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
           {/* Column 1: Mager Construction */}
           <div className="space-y-4">
@@ -79,15 +87,15 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-semibold text-foreground mb-4">Connect With Us</h3>
             <div className="space-y-3 text-sm">
-              <a href="tel:+25176315798" className="flex items-center hover:text-primary transition-colors">
-                <Phone size={16} className="mr-2 flex-shrink-0" /> (+251) 76315798
+              <a href="tel:+251976315798" className="flex items-center hover:text-primary transition-colors">
+                <Phone size={16} className="mr-2 flex-shrink-0" /> (+251) 976 315 798
               </a>
-              <a href="mailto:info@magerconstruction.com" className="flex items-center hover:text-primary transition-colors">
-                <Mail size={16} className="mr-2 flex-shrink-0" /> info@magerconstruction.com
+              <a href="mailto:henios865@gmail.com" className="flex items-center hover:text-primary transition-colors">
+                <Mail size={16} className="mr-2 flex-shrink-0" /> henios865@gmail.com
               </a>
               <p className="flex items-start">
                 <MapPin size={16} className="mr-2 mt-1 flex-shrink-0" />
-                <span>Sabian,  <br/>Dire Dawa Ethiopia</span>
+                <span>Addis Ababa,  <br/>Ethiopia</span>
               </p>
             </div>
             <div className="flex space-x-3 mt-4">
