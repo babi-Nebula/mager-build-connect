@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Linkedin, Facebook, Instagram, Building, Mail, Phone, MapPin } from 'lucide-react';
-import footerImage from '@/assets/footer-construction.jpg';
+import footerImage from '@/assets/img2.jpg';
 
 const quickLinks = [
   { name: 'Home', href: '#home' },
