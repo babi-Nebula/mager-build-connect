@@ -3,9 +3,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { CheckCircle, Users, Clock } from 'lucide-react';
 import AnimatedStat from './AnimatedStat';
-
-// Placeholder image URL - user can replace this
-const heroImageUrl = '/lovable-uploads/photo-1493397212122-2b85dda8106b.jpeg'; // A building with wavy lines
+import heroImage from '@/assets/hero-construction.jpg';
 
 interface StatDataItem {
   valueStr: string;
@@ -27,11 +25,11 @@ const HeroSection: React.FC = () => {
       {/* Background Image with Gradient Overlay */}
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url('${heroImageUrl}')` }}
+        style={{ backgroundImage: `url('${heroImage}')` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/95"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background/90"></div>
       </div>
-      
+
       {/* Animated gradient shapes (optional decorative elements) */}
       <div className="absolute -top-40 -left-40 w-96 h-96 bg-primary/20 rounded-full filter blur-3xl opacity-50 animate-pulse"></div>
       <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-secondary/20 rounded-full filter blur-3xl opacity-50 animate-pulse animation-delay-2000"></div>
