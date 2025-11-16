@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { Linkedin, Facebook, Instagram, Building, Mail, Phone, MapPin } from 'lucide-react';
-import footerImage from '@/assets/img2.jpg';
+import AnimatedBackground from '@/components/landing/AnimatedBackground'; // <-- ADD THIS IMPORT
 
 const quickLinks = [
   { name: 'Home', href: '#home' },
@@ -26,25 +25,28 @@ const socialLinks = [
 ];
 
 const legalLinks = [
-    { name: 'Privacy Policy', href: '#' },
-    { name: 'Terms of Service', href: '#' },
-    { name: 'Cookie Policy', href: '#' },
+  { name: 'Privacy Policy', href: '#' },
+  { name: 'Terms of Service', href: '#' },
+  { name: 'Cookie Policy', href: '#' },
 ];
 
 const Footer: React.FC = () => {
   return (
     <footer className="relative bg-slate-900 border-t border-border text-muted-foreground overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url('${footerImage}')` }}
-      >
-        <div className="absolute inset-0 bg-slate-900/85"></div>
+
+      {/* 🔥 3D Animated Background */}
+      <div className="absolute inset-0 z-0 opacity-50">
+        <AnimatedBackground />
       </div>
-      
+
+      {/* Slight darker overlay to make text readable */}
+      <div className="absolute inset-0 bg-black/60 z-0"></div>
+
+      {/* CONTENT */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
-          {/* Column 1: Mager Construction */}
+          
+          {/* Column 1 */}
           <div className="space-y-4">
             <a href="#home" className="flex items-center space-x-2 text-xl font-bold text-primary mb-2">
               <Building size={28} />
@@ -55,7 +57,7 @@ const Footer: React.FC = () => {
             </p>
           </div>
 
-          {/* Column 2: Quick Links */}
+          {/* Column 2 */}
           <div>
             <h3 className="text-lg font-semibold text-foreground mb-4">Quick Links</h3>
             <ul className="space-y-2">
@@ -69,7 +71,7 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Column 3: Services */}
+          {/* Column 3 */}
           <div>
             <h3 className="text-lg font-semibold text-foreground mb-4">Services</h3>
             <ul className="space-y-2">
@@ -83,7 +85,7 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Column 4: Connect With Us */}
+          {/* Column 4 */}
           <div>
             <h3 className="text-lg font-semibold text-foreground mb-4">Connect With Us</h3>
             <div className="space-y-3 text-sm">
@@ -95,9 +97,10 @@ const Footer: React.FC = () => {
               </a>
               <p className="flex items-start">
                 <MapPin size={16} className="mr-2 mt-1 flex-shrink-0" />
-                <span>Addis Ababa,  <br/>Ethiopia</span>
+                <span>Dire Dawa, <br /> Ethiopia</span>
               </p>
             </div>
+
             <div className="flex space-x-3 mt-4">
               {socialLinks.map((link) => (
                 <a
@@ -113,15 +116,16 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
+        {/* Bottom Section */}
         <div className="border-t border-border pt-8 flex flex-col sm:flex-row justify-between items-center text-xs">
           <p className="mb-2 sm:mb-0">
             &copy; {new Date().getFullYear()} Mager Construction. All rights reserved.
           </p>
           <div className="flex space-x-4">
             {legalLinks.map((link) => (
-                <a key={link.name} href={link.href} className="hover:text-primary transition-colors">
-                    {link.name}
-                </a>
+              <a key={link.name} href={link.href} className="hover:text-primary transition-colors">
+                {link.name}
+              </a>
             ))}
           </div>
         </div>
