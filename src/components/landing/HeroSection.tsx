@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { CheckCircle, Users, Clock } from 'lucide-react';
 import AnimatedStat from './AnimatedStat';
-import heroImage from '@/assets/img2.jpg';
+import AnimatedBackground from './AnimatedBackground';
 
 interface StatDataItem {
   valueStr: string;
@@ -20,19 +20,10 @@ const statsData: StatDataItem[] = [
 
 const HeroSection: React.FC = () => {
   return (
-    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden bg-background">
       
-      {/* Background Image + Fixed Light Overlay */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url('${heroImage}')` }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/20 to-black/30"></div>
-      </div>
-
-      {/* Decorative blurred shapes */}
-      <div className="absolute -top-40 -left-40 w-96 h-96 bg-primary/20 rounded-full filter blur-3xl opacity-50 animate-pulse"></div>
-      <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-secondary/20 rounded-full filter blur-3xl opacity-50 animate-pulse animation-delay-2000"></div>
+      {/* Animated 3D Background */}
+      <AnimatedBackground />
       
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 flex flex-col items-center">
         
