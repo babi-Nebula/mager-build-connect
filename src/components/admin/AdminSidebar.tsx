@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
@@ -24,6 +23,8 @@ import {
   Settings, 
   LogOut 
 } from 'lucide-react';
+
+import { ThemeToggle } from '@/components/ui/theme-toggle';
 
 const AdminSidebar = () => {
   const location = useLocation();
@@ -77,11 +78,23 @@ const AdminSidebar = () => {
       </SidebarContent>
       
       <SidebarFooter className="border-t border-border">
-        <div className="p-4">
-          <div className="mb-4">
+        <div className="p-4 space-y-4">
+          
+          {/* Theme Toggle */}
+          <div className="flex items-center justify-between">
+            <span className="text-sm font-medium text-foreground">
+              Theme
+            </span>
+            <ThemeToggle />
+          </div>
+
+          {/* User info */}
+          <div>
             <p className="text-sm font-medium text-foreground">Admin User</p>
             <p className="text-xs text-muted-foreground">admin@demo.com</p>
           </div>
+
+          {/* Logout */}
           <Button
             onClick={handleLogout}
             variant="outline"

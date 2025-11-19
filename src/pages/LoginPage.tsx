@@ -1,10 +1,8 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Building, LogIn } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
@@ -12,56 +10,43 @@ import { useToast } from '@/hooks/use-toast';
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [role, setRole] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
 
-  // Mock credentials for testing
-  const mockCredentials = {
-    admin: { email: 'admin@demo.com', password: 'admin123' },
-    contractor: { email: 'contractor@demo.com', password: 'contractor123' },
-    customer: { email: 'customer@demo.com', password: 'customer123' }
-  };
+  // Mock users with auto-detect role
+  const mockUsers = [
+    { role: 'admin', email: 'admin@demo.com', password: 'admin123' },
+    { role: 'contractor', email: 'contractor@demo.com', password: 'contractor123' },
+    { role: 'customer', email: 'customer@demo.com', password: 'customer123' },
+  ];
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
 
-    // Simulate API call
     setTimeout(() => {
-      const roleCredentials = mockCredentials[role as keyof typeof mockCredentials];
-      
-      if (roleCredentials && email === roleCredentials.email && password === roleCredentials.password) {
-        localStorage.setItem('userRole', role);
-        localStorage.setItem('userEmail', email);
-        
+      // Find user by email
+      const foundUser = mockUsers.find((u) => u.email === email);
+
+      if (foundUser && foundUser.password === password) {
+        localStorage.setItem('userRole', foundUser.role);
+        localStorage.setItem('userEmail', foundUser.email);
+
         toast({
           title: "Login Successful",
-          description: `Welcome back! Redirecting to ${role} dashboard...`,
+          description: `Welcome back! Redirecting to your ${foundUser.role} dashboard...`,
         });
 
-        // Redirect based on role
-        switch (role) {
-          case 'admin':
-            navigate('/admin/dashboard');
-            break;
-          case 'contractor':
-            navigate('/contractor/dashboard');
-            break;
-          case 'customer':
-            navigate('/customer/dashboard');
-            break;
-          default:
-            navigate('/');
-        }
+        navigate(`/${foundUser.role}/dashboard`);
       } else {
         toast({
           title: "Login Failed",
-          description: "Invalid credentials. Please try again.",
+          description: "Invalid email or password. Please try again.",
           variant: "destructive",
         });
       }
+
       setIsLoading(false);
     }, 1000);
   };
@@ -87,20 +72,6 @@ const LoginPage = () => {
           </CardHeader>
           <CardContent>
             <form onSubmit={handleLogin} className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="role">Role</Label>
-                <Select value={role} onValueChange={setRole} required>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select your role" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="admin">Admin</SelectItem>
-                    <SelectItem value="contractor">Contractor</SelectItem>
-                    <SelectItem value="customer">Customer</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
                 <Input
@@ -143,15 +114,6 @@ const LoginPage = () => {
                 )}
               </Button>
             </form>
-
-            {/* <div className="mt-6 p-4 bg-muted/20 rounded-lg">
-              <p className="text-sm text-muted-foreground mb-2 font-medium">Demo Credentials:</p>
-              <div className="text-xs text-muted-foreground space-y-1">
-                <p><strong>Admin:</strong> admin@demo.com / admin123</p>
-                <p><strong>Contractor:</strong> contractor@demo.com / contractor123</p>
-                <p><strong>Customer:</strong> customer@demo.com / customer123</p>
-              </div>
-            </div> */}
           </CardContent>
         </Card>
       </div>
