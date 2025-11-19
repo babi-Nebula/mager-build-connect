@@ -5,41 +5,42 @@ import ProjectCard from './ProjectCard';
 const projects = [
   {
     imageSrc: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGNvbnN0cnVjdGlvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-    title: 'Modern Urban Residential Complex',
-    location: 'Downtown Metropia',
-    budget: '$5.2M - $6.5M',
+    title: 'Addis Ababa Modern Residential Complex',
+    location: 'Bole, Addis Ababa',
+    budget: '180M - 220M ETB',
   },
   {
     imageSrc: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8b2ZmaWNlJTIwYnVpbGRpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
-    title: 'Eco-Friendly Office Park',
-    location: 'Green Valley Tech Hub',
-    budget: '$12M - $15M',
+    title: 'Eco-Friendly Office Park Expansion',
+    location: 'Lemi Industrial Park, Addis Ababa',
+    budget: '400M - 520M ETB',
   },
   {
     imageSrc: 'https://images.unsplash.com/photo-1433832597046-4f10e10ac764?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGluZnJhc3RydWN0dXJlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-    title: 'Regional Infrastructure Upgrade',
-    location: 'Tri-County Area',
-    budget: '$25M+',
+    title: 'Regional Road Infrastructure Upgrade',
+    location: 'Oromia, Central Ethiopia',
+    budget: '900M+ ETB',
   },
   {
-    imageSrc: 'https://images.unsplash.com/photo-1494891848038-7bd202a2afeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60', // New image
-    title: 'Coastal City Bridge Construction',
-    location: 'Seaside City, Coastal Region',
-    budget: '$45M - $55M',
+    imageSrc: 'https://images.unsplash.com/photo-1494891848038-7bd202a2afeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60',
+    title: 'Coastal Highway Bridge Construction',
+    location: 'Assab Coastal Area, Afar Region',
+    budget: '1.5B - 1.9B ETB',
   },
   {
-    imageSrc: 'https://images.unsplash.com/photo-1527576539890-dfa815648363?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60', // New image
-    title: 'Downtown High-Rise Tower',
-    location: 'Central Business District',
-    budget: '$70M - $85M',
+    imageSrc: 'https://images.unsplash.com/photo-1527576539890-dfa815648363?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60',
+    title: 'Addis Ababa High-Rise Tower Project',
+    location: 'Kazanchis, Addis Ababa',
+    budget: '2.3B - 3.0B ETB',
   },
   {
-    imageSrc: 'https://images.unsplash.com/photo-1486718448742-163732cd1544?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60', // New image
+    imageSrc: 'https://images.unsplash.com/photo-1486718448742-163732cd1544?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60',
     title: 'Sustainable Housing Development',
-    location: 'Evergreen Suburbs',
-    budget: '$8M - $10M',
+    location: 'Adama, Oromia Region',
+    budget: '300M - 380M ETB',
   },
 ];
+
 
 const NewsSection: React.FC = () => {
   return (

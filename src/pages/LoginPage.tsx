@@ -144,14 +144,14 @@ const LoginPage = () => {
               </Button>
             </form>
 
-            <div className="mt-6 p-4 bg-muted/20 rounded-lg">
+            {/* <div className="mt-6 p-4 bg-muted/20 rounded-lg">
               <p className="text-sm text-muted-foreground mb-2 font-medium">Demo Credentials:</p>
               <div className="text-xs text-muted-foreground space-y-1">
                 <p><strong>Admin:</strong> admin@demo.com / admin123</p>
                 <p><strong>Contractor:</strong> contractor@demo.com / contractor123</p>
                 <p><strong>Customer:</strong> customer@demo.com / customer123</p>
               </div>
-            </div>
+            </div> */}
           </CardContent>
         </Card>
       </div>
