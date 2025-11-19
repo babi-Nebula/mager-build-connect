@@ -1,12 +1,13 @@
 import React, { useRef, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Float, MeshDistortMaterial, Sparkles } from "@react-three/drei";
+import { useTheme } from "next-themes";
 import * as THREE from "three";
 
 /* --------------------------------------------------------
    BIGGER, BRIGHTER FLOATING BOXES
 -------------------------------------------------------- */
-const FloatingBoxes = () => {
+const FloatingBoxes = ({ isDark }: { isDark: boolean }) => {
   const groupRef = useRef<THREE.Group>(null);
 
   const boxes = useMemo(() => {
@@ -43,15 +44,15 @@ const FloatingBoxes = () => {
           <mesh position={box.position} rotation={box.rotation} scale={box.scale}>
             <boxGeometry args={[1.2, 1.2, 1.2]} />
             <MeshDistortMaterial
-              color={i % 3 === 0 ? "#ff4d6d" : i % 3 === 1 ? "#f472b6" : "#a855f7"}
-              emissive={i % 3 === 0 ? "#ff1e4d" : i % 3 === 1 ? "#ff4da6" : "#7b2cbf"}
-              emissiveIntensity={0.9}
+              color={isDark ? (i % 3 === 0 ? "#ff4d6d" : i % 3 === 1 ? "#f472b6" : "#a855f7") : (i % 3 === 0 ? "#a855f7" : i % 3 === 1 ? "#06b6d4" : "#f472b6")}
+              emissive={isDark ? (i % 3 === 0 ? "#ff1e4d" : i % 3 === 1 ? "#ff4da6" : "#7b2cbf") : (i % 3 === 0 ? "#7c3aed" : i % 3 === 1 ? "#0891b2" : "#ec4899")}
+              emissiveIntensity={isDark ? 0.9 : 0.6}
               speed={2}
               distort={0.25}
               metalness={1}
               roughness={0.1}
               transparent
-              opacity={0.9}
+              opacity={isDark ? 0.9 : 0.7}
             />
           </mesh>
         </Float>
@@ -63,7 +64,7 @@ const FloatingBoxes = () => {
 /* --------------------------------------------------------
    BIGGER FLOATING STONES / DEBRIS
 -------------------------------------------------------- */
-const FloatingStones = () => {
+const FloatingStones = ({ isDark }: { isDark: boolean }) => {
   const groupRef = useRef<THREE.Group>(null);
 
   const stones = useMemo(() => {
@@ -101,13 +102,13 @@ const FloatingStones = () => {
           <mesh position={stone.position} rotation={stone.rotation} scale={stone.scale}>
             <octahedronGeometry args={[1, 0]} />
             <meshStandardMaterial
-              color={i % 2 === 0 ? "#818cf8" : "#a78bfa"}
-              emissive={i % 2 === 0 ? "#6366f1" : "#8b5cf6"}
-              emissiveIntensity={1}
+              color={isDark ? (i % 2 === 0 ? "#818cf8" : "#a78bfa") : (i % 2 === 0 ? "#06b6d4" : "#8b5cf6")}
+              emissive={isDark ? (i % 2 === 0 ? "#6366f1" : "#8b5cf6") : (i % 2 === 0 ? "#0891b2" : "#7c3aed")}
+              emissiveIntensity={isDark ? 1 : 0.6}
               metalness={0.9}
               roughness={0.1}
               transparent
-              opacity={0.85}
+              opacity={isDark ? 0.85 : 0.65}
             />
           </mesh>
         </Float>
@@ -120,30 +121,39 @@ const FloatingStones = () => {
    MAIN BACKGROUND COMPONENT
 -------------------------------------------------------- */
 const AnimatedBackground: React.FC = () => {
+  const { theme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isDark = mounted ? theme === "dark" : true;
+
   return (
-    <div className="absolute inset-0 w-full h-full">
+    <div className="absolute inset-0 w-full h-full transition-all duration-500">
       {/* STATIC CONSTRUCTION BACKGROUND IMAGE */}
       <div
-        className="absolute inset-0 bg-cover bg-center opacity-40"
+        className={`absolute inset-0 bg-cover bg-center transition-opacity duration-500 ${isDark ? 'opacity-40' : 'opacity-20'}`}
         style={{ backgroundImage: "url('/images/construction-dark.jpg')" }}
       ></div>
 
       <Canvas camera={{ position: [0, 0, 10], fov: 60 }} className="w-full h-full">
         {/* Lighting */}
-        <ambientLight intensity={0.7} />
-        <directionalLight position={[10, 10, 5]} intensity={1.2} color="#ffffff" />
-        <pointLight position={[0, 0, 0]} intensity={1.5} color="#ff4d6d" />
+        <ambientLight intensity={isDark ? 0.7 : 1.2} />
+        <directionalLight position={[10, 10, 5]} intensity={isDark ? 1.2 : 0.8} color="#ffffff" />
+        <pointLight position={[0, 0, 0]} intensity={isDark ? 1.5 : 0.8} color={isDark ? "#ff4d6d" : "#a855f7"} />
 
         {/* Particles (very visible) */}
-        <Sparkles count={150} speed={1.5} size={6} opacity={0.5} color="#ffffff" />
+        <Sparkles count={150} speed={1.5} size={6} opacity={isDark ? 0.5 : 0.3} color={isDark ? "#ffffff" : "#a855f7"} />
 
         {/* Animated Objects */}
-        <FloatingBoxes />
-        <FloatingStones />
+        <FloatingBoxes isDark={isDark} />
+        <FloatingStones isDark={isDark} />
       </Canvas>
 
       {/* Softer Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40 pointer-events-none"></div>
+      <div className={`absolute inset-0 pointer-events-none transition-all duration-500 ${isDark ? 'bg-gradient-to-b from-black/30 via-black/20 to-black/40' : 'bg-gradient-to-b from-white/20 via-transparent to-white/10'}`}></div>
     </div>
   );
 };
