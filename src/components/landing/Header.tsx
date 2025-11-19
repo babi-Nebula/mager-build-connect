@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Menu, X, LogIn, Building } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { ThemeToggle } from '@/components/ui/theme-toggle';
 
 const navItems = [
   { name: 'Home', href: '#home' },
@@ -33,6 +34,7 @@ const Header: React.FC = () => {
                 {item.name}
               </a>
             ))}
+            <ThemeToggle />
             <Link to="/login">
               <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
                 <LogIn size={16} className="mr-2" /> Login
@@ -64,6 +66,10 @@ const Header: React.FC = () => {
                 {item.name}
               </a>
             ))}
+            <div className="flex items-center justify-between pt-2">
+              <span className="text-sm font-medium text-muted-foreground">Theme</span>
+              <ThemeToggle />
+            </div>
             <Link to="/login" onClick={() => setMobileMenuOpen(false)}>
               <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground">
                  <LogIn size={16} className="mr-2" /> Login
