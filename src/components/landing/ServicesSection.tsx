@@ -1,7 +1,17 @@
-import React from 'react';
-import { LayoutDashboard, Radio, FileBarChart } from 'lucide-react';
+import React, { useState } from 'react';
+import { LayoutDashboard, Radio, FileBarChart, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 
 const services = [
   {
@@ -10,7 +20,14 @@ const services = [
     subtitle: 'For Contractors & Engineers',
     description: 'Comprehensive digital tools to streamline project workflows, track progress, and collaborate efficiently in real-time.',
     linkText: 'Explore Project Management',
-    linkTo: '/services/project-management',
+    options: [
+      'Task scheduling and assignment',
+      'Real-time progress tracking',
+      'Team collaboration tools',
+      'Budget and resource management',
+      'Document management system',
+      'Mobile access for field teams'
+    ]
   },
   {
     icon: <Radio size={48} className="text-primary" />,
@@ -18,7 +35,14 @@ const services = [
     subtitle: 'For Consultants',
     description: 'Advanced monitoring solutions to oversee construction sites remotely with live updates and instant notifications.',
     linkText: 'Learn About Monitoring',
-    linkTo: '/services/remote-monitoring',
+    options: [
+      'Live site surveillance cameras',
+      'IoT sensor integration',
+      'Automated alert system',
+      'Remote inspection capabilities',
+      'Safety compliance monitoring',
+      'Environmental condition tracking'
+    ]
   },
   {
     icon: <FileBarChart size={48} className="text-primary" />,
@@ -26,11 +50,20 @@ const services = [
     subtitle: 'To Clients/Owners',
     description: 'Automated reporting systems delivering real-time project insights and progress updates directly to stakeholders.',
     linkText: 'View Reporting Solutions',
-    linkTo: '/services/digital-reporting',
+    options: [
+      'Customizable report templates',
+      'Automated daily/weekly reports',
+      'Visual progress dashboards',
+      'Financial tracking and forecasts',
+      'Photo and video documentation',
+      'Client portal access'
+    ]
   },
 ];
 
 const ServicesSection: React.FC = () => {
+  const [selectedService, setSelectedService] = useState<number | null>(null);
+
   return (
     <section id="services" className="py-12 sm:py-16 md:py-24 bg-background/70 backdrop-blur-sm">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -61,15 +94,45 @@ const ServicesSection: React.FC = () => {
               <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 flex-grow leading-relaxed">
                 {service.description}
               </p>
-              <Button 
-                variant="link" 
-                className="text-primary hover:text-primary/80 p-0 self-start text-sm sm:text-base group-hover:translate-x-2 transition-transform duration-300" 
-                asChild
-              >
-                <Link to={service.linkTo}>
-                  {service.linkText} <span className="ml-1">&rarr;</span>
-                </Link>
-              </Button>
+              
+              <AlertDialog open={selectedService === index} onOpenChange={(open) => setSelectedService(open ? index : null)}>
+                <AlertDialogTrigger asChild>
+                  <Button 
+                    variant="link" 
+                    className="text-primary hover:text-primary/80 p-0 self-start text-sm sm:text-base group-hover:translate-x-2 transition-transform duration-300"
+                    onClick={() => setSelectedService(index)}
+                  >
+                    {service.linkText} <span className="ml-1">&rarr;</span>
+                  </Button>
+                </AlertDialogTrigger>
+                <AlertDialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+                  <AlertDialogHeader>
+                    <div className="mb-4">
+                      {service.icon}
+                    </div>
+                    <AlertDialogTitle className="text-2xl">{service.title}</AlertDialogTitle>
+                    <AlertDialogDescription className="text-base text-primary font-medium mt-2">
+                      {service.subtitle}
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                  <div className="py-4">
+                    <p className="text-muted-foreground mb-6">{service.description}</p>
+                    <h4 className="font-semibold text-foreground mb-4">Key Features & Options:</h4>
+                    <ul className="space-y-3">
+                      {service.options.map((option, idx) => (
+                        <li key={idx} className="flex items-start gap-3">
+                          <Check className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                          <span className="text-sm text-foreground">{option}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <AlertDialogFooter>
+                    <AlertDialogCancel>Close</AlertDialogCancel>
+                    <AlertDialogAction>Get Started</AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
             </div>
           ))}
         </div>
