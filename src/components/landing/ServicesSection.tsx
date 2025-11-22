@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { LayoutDashboard, Radio, FileBarChart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -6,23 +5,26 @@ import { Link } from 'react-router-dom';
 
 const services = [
   {
-    icon: <LayoutDashboard size={40} className="text-primary" />,
+    icon: <LayoutDashboard size={48} className="text-primary" />,
     title: 'Digital Project Management',
-    description: 'Comprehensive digital tools for contractors and engineers to streamline project workflows, track progress, and collaborate efficiently.',
+    subtitle: 'For Contractors & Engineers',
+    description: 'Comprehensive digital tools to streamline project workflows, track progress, and collaborate efficiently in real-time.',
     linkText: 'Explore Project Management',
     linkTo: '/services/project-management',
   },
   {
-    icon: <Radio size={40} className="text-primary" />,
+    icon: <Radio size={48} className="text-primary" />,
     title: 'Real-Time Remote Monitoring',
-    description: 'Advanced monitoring solutions for consultants to oversee construction sites remotely with live updates and instant notifications.',
+    subtitle: 'For Consultants',
+    description: 'Advanced monitoring solutions to oversee construction sites remotely with live updates and instant notifications.',
     linkText: 'Learn About Monitoring',
     linkTo: '/services/remote-monitoring',
   },
   {
-    icon: <FileBarChart size={40} className="text-primary" />,
+    icon: <FileBarChart size={48} className="text-primary" />,
     title: 'Direct Digital Reporting',
-    description: 'Automated reporting systems delivering real-time project insights and progress updates directly to clients and owners.',
+    subtitle: 'To Clients/Owners',
+    description: 'Automated reporting systems delivering real-time project insights and progress updates directly to stakeholders.',
     linkText: 'View Reporting Solutions',
     linkTo: '/services/digital-reporting',
   },
@@ -30,27 +32,42 @@ const services = [
 
 const ServicesSection: React.FC = () => {
   return (
-    <section id="services" className="py-16 md:py-24 bg-background/70 backdrop-blur-sm">
+    <section id="services" className="py-12 sm:py-16 md:py-24 bg-background/70 backdrop-blur-sm">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Our Services</h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            Catering to diverse needs with expertise and precision.
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+            Our Services
+          </h2>
+          <p className="mt-3 sm:mt-4 text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
+            Cutting-edge digital solutions for modern construction management
           </p>
         </div>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {services.map((service, index) => (
             <div
               key={service.title}
-              className="flex flex-col p-8 bg-slate-800/50 backdrop-blur-lg border border-border rounded-xl shadow-xl hover:shadow-primary/30 transition-all duration-300 transform hover:-translate-y-1 animate-fade-in-up"
+              className="group flex flex-col p-6 sm:p-8 bg-card/50 backdrop-blur-lg border border-border rounded-xl shadow-lg hover:shadow-primary/30 transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-up"
               style={{animationDelay: `${index * 0.15}s`}}
             >
-              <div className="mb-6">{service.icon}</div>
-              <h3 className="text-2xl font-semibold text-foreground mb-3">{service.title}</h3>
-              <p className="text-muted-foreground mb-6 flex-grow">{service.description}</p>
-              <Button variant="link" className="text-primary hover:text-primary/80 p-0 self-start" asChild>
-                <Link to={service.linkTo}> {/* Use Link component */}
-                  {service.linkText} &rarr;
+              <div className="mb-4 sm:mb-6 transform group-hover:scale-110 transition-transform duration-300">
+                {service.icon}
+              </div>
+              <h3 className="text-xl sm:text-2xl font-semibold text-foreground mb-2">
+                {service.title}
+              </h3>
+              <p className="text-sm sm:text-base text-primary font-medium mb-3 sm:mb-4">
+                {service.subtitle}
+              </p>
+              <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 flex-grow leading-relaxed">
+                {service.description}
+              </p>
+              <Button 
+                variant="link" 
+                className="text-primary hover:text-primary/80 p-0 self-start text-sm sm:text-base group-hover:translate-x-2 transition-transform duration-300" 
+                asChild
+              >
+                <Link to={service.linkTo}>
+                  {service.linkText} <span className="ml-1">&rarr;</span>
                 </Link>
               </Button>
             </div>
