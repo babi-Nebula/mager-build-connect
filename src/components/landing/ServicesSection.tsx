@@ -1,30 +1,30 @@
 
 import React from 'react';
-import { Home, Building2, Landmark } from 'lucide-react';
+import { LayoutDashboard, Radio, FileBarChart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom'; // Import Link
+import { Link } from 'react-router-dom';
 
 const services = [
   {
-    icon: <Home size={40} className="text-primary" />,
-    title: 'Individual Projects',
-    description: 'Expert home renovations and custom builds, tailored to your personal vision and lifestyle.',
-    linkText: 'Explore Home Solutions',
-    linkTo: '/services/individual-projects', // Add link path
+    icon: <LayoutDashboard size={40} className="text-primary" />,
+    title: 'Digital Project Management',
+    description: 'Comprehensive digital tools for contractors and engineers to streamline project workflows, track progress, and collaborate efficiently.',
+    linkText: 'Explore Project Management',
+    linkTo: '/services/project-management',
   },
   {
-    icon: <Building2 size={40} className="text-primary" />,
-    title: 'Institutional Builds',
-    description: 'Specialized construction for schools, offices, and commercial spaces, focusing on functionality and durability.',
-    linkText: 'View Institutional Services',
-    linkTo: '/services/institutional-builds', // Add link path
+    icon: <Radio size={40} className="text-primary" />,
+    title: 'Real-Time Remote Monitoring',
+    description: 'Advanced monitoring solutions for consultants to oversee construction sites remotely with live updates and instant notifications.',
+    linkText: 'Learn About Monitoring',
+    linkTo: '/services/remote-monitoring',
   },
   {
-    icon: <Landmark size={40} className="text-primary" />,
-    title: 'Government Contracts',
-    description: 'Reliable infrastructure development and public works projects, delivered on time and within budget.',
-    linkText: 'Learn About Public Works',
-    linkTo: '/services/government-contracts', // Add link path
+    icon: <FileBarChart size={40} className="text-primary" />,
+    title: 'Direct Digital Reporting',
+    description: 'Automated reporting systems delivering real-time project insights and progress updates directly to clients and owners.',
+    linkText: 'View Reporting Solutions',
+    linkTo: '/services/digital-reporting',
   },
 ];
 
