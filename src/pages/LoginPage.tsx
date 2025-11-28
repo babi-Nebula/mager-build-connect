@@ -17,7 +17,7 @@ const LoginPage = () => {
   // Mock users
   const mockUsers = [
     { role: 'admin', email: 'admin@demo.com', password: 'admin123' },
-    { role: 'admin', email: 'consultant@gmail.com', password: 'consultant123' }, // consultant acts as admin
+    { role: 'admin', email: 'consultant@demo.com', password: 'consultant123' }, // consultant acts as admin
     { role: 'contractor', email: 'contractor@demo.com', password: 'contractor123' },
     { role: 'customer', email: 'customer@demo.com', password: 'customer123' },
   ];
