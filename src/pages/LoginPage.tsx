@@ -14,9 +14,10 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
 
-  // Mock users with auto-detect role
+  // Mock users
   const mockUsers = [
     { role: 'admin', email: 'admin@demo.com', password: 'admin123' },
+    { role: 'admin', email: 'consultant@gmail.com', password: 'consultant123' }, // consultant acts as admin
     { role: 'contractor', email: 'contractor@demo.com', password: 'contractor123' },
     { role: 'customer', email: 'customer@demo.com', password: 'customer123' },
   ];
@@ -26,11 +27,10 @@ const LoginPage = () => {
     setIsLoading(true);
 
     setTimeout(() => {
-      // Find user by email
       const foundUser = mockUsers.find((u) => u.email === email);
 
       if (foundUser && foundUser.password === password) {
-        localStorage.setItem('userRole', foundUser.role);
+        localStorage.setItem('userRole', foundUser.role); // still 'admin' for consultant
         localStorage.setItem('userEmail', foundUser.email);
 
         toast({
@@ -38,7 +38,7 @@ const LoginPage = () => {
           description: `Welcome back! Redirecting to your ${foundUser.role} dashboard...`,
         });
 
-        navigate(`/${foundUser.role}/dashboard`);
+        navigate(`/${foundUser.role}/dashboard`); // consultant goes to /admin/dashboard
       } else {
         toast({
           title: "Login Failed",
