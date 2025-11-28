@@ -90,8 +90,8 @@ const AdminSidebar = () => {
 
           {/* User info */}
           <div>
-            <p className="text-sm font-medium text-foreground">Admin User</p>
-            <p className="text-xs text-muted-foreground">admin@demo.com</p>
+            <p className="text-sm font-medium text-foreground">Consultant User</p>
+            <p className="text-xs text-muted-foreground">consultant@demo.com</p>
           </div>
 
           {/* Logout */}
