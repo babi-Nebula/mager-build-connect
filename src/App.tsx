@@ -33,6 +33,11 @@ import SitePhotos from './pages/customer/SitePhotos';
 import SafetyCompliance from './pages/customer/SafetyCompliance';
 import Support from './pages/customer/Support';
 
+import TechnicalData from './pages/admin/TechnicalData';
+import FinancialProgress from './pages/admin/FinancialProgress';
+import ContractorCommunication from './pages/admin/ContractorCommunication';
+import ProjectOverview2 from './pages/admin/ProjectOverview2';
+
 const queryClient = new QueryClient();
 
 const App: React.FC = () => {
@@ -56,6 +61,11 @@ const App: React.FC = () => {
             <Route path="/admin/reports" element={<Reports />} />
             <Route path="/admin/news" element={<NewsManagement />} />
             <Route path="/admin/settings" element={<Settings />} />
+
+            <Route path="/admin/project-overview" element={<ProjectOverview2/>} />
+        <Route path="/admin/technical-data" element={<TechnicalData />} />
+        <Route path="/admin/financial-progress" element={<FinancialProgress />} />
+        <Route path="/admin/contractor-communication" element={<ContractorCommunication/>} />
             
             {/* Contractor Routes */}
             <Route path="/contractor/dashboard" element={<ContractorDashboard />} />

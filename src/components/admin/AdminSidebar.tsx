@@ -38,10 +38,18 @@ const AdminSidebar = () => {
 
   const navigationItems = [
     { title: 'Dashboard', url: '/admin/dashboard', icon: Home },
+     { title: 'Project Overview', url: '/admin/project-overview', icon: BarChart3 },
     { title: 'User Management', url: '/admin/users', icon: Users },
     { title: 'Reports', url: '/admin/reports', icon: BarChart3 },
-    { title: 'News Management', url: '/admin/news', icon: FileText },
     
+    
+
+    
+  { title: 'Technical Data', url: '/admin/technical-data', icon: FileText },
+  { title: 'Financial Progress', url: '/admin/financial-progress', icon: Settings },
+  { title: 'Contractor Communication', url: '/admin/contractor-communication', icon: Users },
+  { title: 'News Management', url: '/admin/news', icon: FileText },
+
   ];
 
   return (
