@@ -40,7 +40,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children, role, userN
   const handleLogout = () => {
     localStorage.removeItem('userRole');
     localStorage.removeItem('userEmail');
-    navigate('/login');
+    navigate('/');
   };
 
   const getNavigationItems = () => {

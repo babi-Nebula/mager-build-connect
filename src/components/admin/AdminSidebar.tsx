@@ -33,7 +33,7 @@ const AdminSidebar = () => {
   const handleLogout = () => {
     localStorage.removeItem('userRole');
     localStorage.removeItem('userEmail');
-    navigate('/login');
+    navigate('/');
   };
 
   const navigationItems = [
@@ -41,7 +41,7 @@ const AdminSidebar = () => {
     { title: 'User Management', url: '/admin/users', icon: Users },
     { title: 'Reports', url: '/admin/reports', icon: BarChart3 },
     { title: 'News Management', url: '/admin/news', icon: FileText },
-    { title: 'Settings', url: '/admin/settings', icon: Settings },
+    
   ];
 
   return (
